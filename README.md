@@ -10,7 +10,7 @@ However, the main power comes from using these capabilities together in a synerg
 The power of client side database, offline, and real-time capabilities combined with scalable vector and 3D graphics allows us to create compelling user experiences. 
 The recent crop of MVC frameworks allows us to develop code that is maintainable and testable. 
 When you use all these capabilities in a single app you have a revolution in your hands. 
-The HTML5 is not an app which does anything specific but is demonstration for developers of how to use these together. 
+The HTML5 Showcase is not an app which does anything specific but is demonstration for developers of how to use these features together. 
 
 
 **Platforms it can run on:**
