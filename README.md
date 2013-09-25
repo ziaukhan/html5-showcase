@@ -11,4 +11,4 @@ Using AngularJS, D3.js, Three.js, Q, Socket.io, Node.js, and MongoDB
 - Chrome Desktop App
 - Android and iOS App using PhoneGap *(WebGL not supported yet)*
 
-Run it on your browser:
+Run it on your browser: http://abc.heroku.com
