@@ -1,7 +1,7 @@
 HTML5 Showcase
 ==============
 
-Using AngularJS, D3.js, Three.js, Q, Socket.io, Node.js, and MongoDB
+Using AngularJS, D3.js, Three.js, Socket.IO, Node.js, and MongoDB
 --------------
 
 HTML5 has extremely powerful features and API’s. 
