@@ -31,6 +31,6 @@ The HTML5 Showcase is not an app which does anything specific but is demonstrati
 - Chrome Desktop App
 - Android and iOS App using PhoneGap *(WebGL not supported yet)*
 
-Run it on your browser: http://abc.heroku.com
+Run it on your browser: http://html5-showcase.cloudapp.net
 
 Note: I have not used RequireJS in this project because I am also using it as a teaching tool in my classes. My experience is that RequireJS makes it difficult for the students to follow and play with the code.
