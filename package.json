@@ -1,0 +1,11 @@
+{
+  "name": "html5-showcase",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "*",
+    "ejs": "*", "async": "*", "mongoose": "3.6.19"  }
+}

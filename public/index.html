@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <title></title>
+        <meta name="description" content=""/>
+        <meta name="viewport" content="width=device-width"/>
+        <link rel="stylesheet" href="styles/main.css"/>
+        <link rel="stylesheet" href="styles/bootstrap.css"/>
+        <link rel="stylesheet" href="styles/bootstrap-responsive.css"/>
+        <link rel="stylesheet" href="styles/slider.css"/>
+        <link rel="stylesheet" href="styles/SVGEditor.css"/>
+        <link rel="stylesheet" href="styles/realtime.css"/>
+        <link rel="stylesheet" href="styles/angular.treeview.css"/>
+        <link rel="stylesheet" href="scripts/editor3d/styles/styles.css"/>
+    </head>
+    <body ng-app="sampleApp">
+        <!--[if lt IE 11]>
+            <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="brand" href="#">HTML5 Showcase</a>
+                    <div class="nav-collapse collapse">
+                        <p class="navbar-text pull-right">
+                            <a href="#" class="navbar-link">Login</a>
+                        </p>
+                        <ul class="nav">
+                            <li><a href="#svg">2D</a></li>
+                            <li><a href="#3d">3D</a></li>
+                            <li><a href="#addressbook">Mobile</a></li>
+                            <li><a href="#realtime">Real-time</a></li>
+                            <li><a href="#organizeme">Offline</a></li>
+                            <li><a href="#sharing">Sharing</a></li>
+
+                            <li><a href="#me">About</a></li>
+                        </ul>
+                    </div><!--/.nav-collapse -->
+                </div>
+            </div>
+        </div>
+
+        <div class="partial_container" ng-view></div>
+
+
+        <script src="scripts/vendor/jquery.js"></script>
+        <script src="scripts/vendor/angular.js"></script>
+        <script src="scripts/vendor/angular-pageslide-directive.js"></script>
+        <script src="scripts/vendor/angular-resource.min.js"></script>
+        <script src="scripts/vendor/ui-bootstrap.js"></script>
+        <script src="scripts/vendor/d3.v3.js"></script>
+        <script src="scripts/vendor/three.js"></script>
+        <script src="scripts/editor3d/editorWorkers/EditorControls.js"></script>
+        <script src="scripts/vendor/bootstrap-slider.js"></script>
+        <script src="scripts/vendor/pouchdb-nightly.js"></script>
+        <!--https://github.com/eu81273/angular.treeview-->
+        <script src="scripts/vendor/angular.treeview.js"></script>
+        <script src="scripts/vendor/hand-1.1.2.js"></script>
+        <script src="scripts/vendor/Signals.js"></script>
+        <script src="scripts/vendor/q.min.js"></script>
+
+        <script src="scripts/vendor/fonts3D/helvetiker_bold.typeface.js"></script>
+        <script src="scripts/vendor/fonts3D/helvetiker_bold_italic.typeface.js"></script>
+        <script src="scripts/vendor/fonts3D/helvetiker_italic.typeface.js"></script>
+        <script src="scripts/vendor/fonts3D/helvetiker_regular.typeface.js"></script>
+
+
+        <script src="scripts/snippets/utils.js"></script>
+
+        <!-- build:js scripts/scripts.js -->
+        <script src="scripts/app.js"></script>
+        <script src="scripts/controllers/main.js"></script>
+
+        <script src="scripts/controllers/addressbook.js"></script>
+
+
+
+        <script src="scripts/services/services.js"></script>
+        <script src="scripts/services/topicsDB.js"></script>
+        <script src="scripts/editor3d/services/services3dTools.js"></script>
+        <script src="scripts/editor3d/controllers/threed.js"></script>
+        <script src="scripts/directives/editor3D.js"></script>
+        <!-- endbuild -->
+
+        <!-- -- SVG Editor -- start -->
+
+        <!-- -- Widgets -- -->
+        <script src="scripts/SVGEditor/widgets/layerArrangement.js"></script>
+        <script src="scripts/SVGEditor/widgets/transformation.js"></script>
+        <script src="scripts/SVGEditor/widgets/radialMenu.js"></script>
+
+        <!-- -- Editor Workers -- -->
+        <script src="scripts/SVGEditor/editorWorkers/signalsSVG.js"></script>
+        <script src="scripts/SVGEditor/editorWorkers/constants.js"></script>
+        <script src="scripts/SVGEditor/editorWorkers/objectModel.js"></script>
+        <script src="scripts/SVGEditor/editorWorkers/mainMenu.js"></script>
+        <script src="scripts/SVGEditor/editorWorkers/editorTools.js"></script>
+        <script src="scripts/SVGEditor/editorWorkers/editorHelper.js"></script>
+        <script src="scripts/SVGEditor/editorWorkers/editorController.js"></script>
+        <script src="scripts/SVGEditor/editorWorkers/transformationHelper.js"></script>
+
+        <!-- -- Creation Tools -- -->
+        <script src="scripts/SVGEditor/creationTools/rectangle.js"></script>
+        <script src="scripts/SVGEditor/creationTools/oval.js"></script>
+        <script src="scripts/SVGEditor/creationTools/triangle.js"></script>
+
+        <!-- -- Directives -- -->
+        <script src="scripts/SVGEditor/directives/shapesEditor.js"></script>
+        <script src="scripts/SVGEditor/directives/adonersUI.js"></script>
+
+        <!-- -- Services -- -->
+        <script src="scripts/SVGEditor/controllers/SVG.js"></script>
+
+
+        <script src="scripts/controllers/organizeme.js"></script>
+
+        <!-- -- SVG Editor -- end -->
+
+        <!-- -- Real Time -- start -->
+
+        <!-- -- Controllers -- -->
+        <script src="scripts/realTime/controllers/realtime.js"></script>
+
+        <!-- -- Real Time -- end -->
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID.
+        <script>
+            var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)}(document,'script'));
+        </script>    -->
+    </body>
+</html>

@@ -1,0 +1,65 @@
+
+<div class="chartDataEditor">
+
+
+<div id="chartEditor" class="editPanel" style="">
+
+
+
+    <div class="panelHeader">
+        <h1>Edit Bar Chart</h1>
+        <button class="btn-large" ng-click="addGroup()">Add Group</button>
+    </div>
+
+    <div class="controlContainer">
+
+
+            <div ng-repeat="group in groups" class="groupContainer">
+
+                <div class="groupItem">
+
+                    <input type="text" ng-model="group.group" ng-blur="unFocusGroup($event)"  ng-focus="focusGroup($event)"  class="groupName" placeholder="Group Name">
+
+                    <button ng-click="addItem(group, $index)" class="btn AddButton"><i class=" icon-plus-sign"></i></button>
+
+                    <button ng-click="removeGroup(group)" class="btn deleteButton"><i class="icon-remove"></i></button>
+
+                </div>
+
+                <div ng-repeat="item in group.children" class="nodeItem">
+
+                    <div class="nodeChild">
+
+                        <span class="">
+
+                              <input ng-focus="focusItem($event)" ng-blur="unFocusItem($event)" type="text" ng-model="group.children[$index].name" class="itemName"  placeholder="Name">
+
+                        </span>
+
+
+                       <span class="">
+
+                               <input ng-focus="focusFrequency($event)" ng-blur="unFocusFrequency($event)" ng-model="group.children[$index].frequency" type="text" class="itemFrequency control-group" value="60" placeholder="Frequency">
+
+                        </span>
+
+                        <button ng-click="removeItem($index)" class="btn deleteItemButton" ><i class="icon-remove"></i></button>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+    <div class="panelFooter" style="">
+        <button class="btn-large" ng-click="drawChart()">Draw</button>
+        <a id="chartEditor-close" href="#" class="btn btn-large">Cancel</a>
+    </div>
+
+</div>
+
+    </div>

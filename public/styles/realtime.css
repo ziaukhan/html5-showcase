@@ -1,0 +1,73 @@
+.realtime{
+    width: 100%;
+    height: 86VH;
+}
+
+.realtime .myCamera {
+    position: absolute;
+    right: 12%;
+    margin-top: 5%;
+    width: 50%;
+    height: 50%;
+    background-color: yellowgreen;
+}
+
+/*-- -- SVG Create Button Panel -- start --*/
+.realtime .control_btns_panel{
+    position: absolute;
+    right: 12%;
+    margin-top: 5%;
+    background-color: rgba(238, 238, 238, 0.5);
+    border: 1px solid #e3e3e3;
+    padding: 10px 20px;
+}
+
+.realtime .control_btns_panel .control_btns{
+    cursor: pointer;
+    margin: 10px auto;
+    background: #fff;
+    text-align: center;
+    background: -webkit-gradient(linear,left top,left bottom,color-stop(rgba(255,255,255,1),0),color-stop(rgba(246,246,246,1),0.74),color-stop(rgba(237,237,237,1),1));
+    background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 74%, rgba(237,237,237,1) 100%);
+    background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 74%, rgba(237,237,237,1) 100%);
+    background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 74%, rgba(237,237,237,1) 100%);
+    background: linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 74%, rgba(237,237,237,1) 100%);
+    -webkit-box-shadow: 0px 0px 7px rgba(0,0,0,0.2), 0px 0px 0px 1px rgba(188,188,188,0.1);
+    -moz-box-shadow: 0px 0px 7px rgba(0,0,0,0.2), 0px 0px 0px 1px rgba(188,188,188,0.1);
+    box-shadow: 0px 0px 7px rgba(0,0,0,0.2), 0px 0px 0px 1px rgba(188,188,188,0.1);
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+    -webkit-transition: box-shadow 0.3s ease-in-out;
+    -moz-transition: box-shadow 0.3s ease-in-out;
+    -o-transition: box-shadow 0.3s ease-in-out;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.realtime .control_btns_panel .control_btns .control_btns_text{
+    padding: 8px 40px;
+    font-size: 14px;
+    color: #5b75a5;
+    font-weight: 500;
+    font-family: "Myriad Pro", "Trebuchet MS", sans-serif;
+    text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
+}
+
+.realtime .control_btns_panel .control_btns:hover{
+    background: #fff;
+    -webkit-box-shadow: 0px 0px 9px rgba(0,0,0,0.4), 0px 0px 0px 1px rgba(188,188,188,0.1);
+    -moz-box-shadow: 0px 0px 9px rgba(0,0,0,0.4), 0px 0px 0px 1px rgba(188,188,188,0.1);
+    box-shadow: 0px 0px 9px rgba(0,0,0,0.4), 0px 0px 0px 1px rgba(188,188,188,0.1);
+}
+
+.realtime .control_btns_panel .control_btns:active{
+    background: #d7565b;
+    box-shadow:
+        0px 2px 2px rgba(0,0,0,0.6) inset,
+        0px 0px 0px 1px rgba(188,188,188,0.1);
+}
+.realtime .control_btns_panel .control_btns:active .control_btns_text{
+    color: #fff;
+    text-shadow: 0px 1px 1px rgba(0,0,0,0.3);
+}
+/*-- -- SVG Create Button Panel -- end --*/

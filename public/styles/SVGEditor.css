@@ -1,0 +1,249 @@
+.svg_editor{
+    width: 100%;
+}
+
+.svg_editor #SVGCanvas{
+    margin-top: 10px;
+    margin-left: 20px ;
+    border: 1px solid #cea400;
+}
+
+.svg_editor #frameLayer{
+    position: absolute;
+    left: 0px;
+    margin-top: 10px;
+}
+
+.svg_editor #frameLayer .selectedCreationToolIconsG{
+    cursor: pointer;
+}
+
+/*-- -- SVG Creation Tool Classes -- start --*/
+
+.svg_editor uc-shapes-editor.RectToolSelected{
+    cursor: crosshair;
+}
+.svg_editor uc-shapes-editor.OvalToolSelected{
+    cursor: crosshair;
+}
+
+/*-- -- SVG Creation Tool Classes -- end --*/
+
+
+/*-- -- Adoners Classes -- start --*/
+
+.svg_editor .rotateHiddenAdonerClass {
+    cursor: se-resize;
+}
+.svg_editor .transformationRect {
+    cursor: move;
+
+}
+
+.svg_editor .pathAdonerCircle {
+    fill: #ff7f0e;
+    fill-opacity: 1;
+    cursor: move;
+    stroke: black;
+    stroke-width: 1.5px;
+    r: 1e-6;
+    stroke-opacity: 0.5;
+}
+
+.svg_editor .adonerHiddenCircleSpline {
+    fill:transparent !important;
+    stroke:transparent !important;
+}
+
+.svg_editor .adonerCircle {
+    fill-opacity: .2;
+    stroke: #F8B218;
+    stroke-width: 1.5px;
+    fill: #ff7f0e;
+    r: 1e-6;
+}
+
+.svg_editor .selectedAdonerCircle {
+    fill: #ff7f0e;
+    stroke: #ff7f0e;
+}
+
+/*-- -- Adoners Classes -- end --*/
+
+/*-- -- SVG Create Button Panel -- start --*/
+/*.svg_editor .create_btn_panel{
+    position: absolute;
+    left: 58px;
+    margin-top: 100px;
+    background-color: rgba(238, 238, 238, 0.5);
+    border: 1px solid #e3e3e3;
+    padding: 10px 20px;
+}
+
+.svg_editor .create_btn_panel .tool_btn{
+    cursor: pointer;
+    margin: 10px auto;
+    background: #fff;
+    text-align: center;
+    background: -webkit-gradient(linear,left top,left bottom,color-stop(rgba(255,255,255,1),0),color-stop(rgba(246,246,246,1),0.74),color-stop(rgba(237,237,237,1),1));
+    background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 74%, rgba(237,237,237,1) 100%);
+    background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 74%, rgba(237,237,237,1) 100%);
+    background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 74%, rgba(237,237,237,1) 100%);
+    background: linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 74%, rgba(237,237,237,1) 100%);
+    -webkit-box-shadow: 0px 0px 7px rgba(0,0,0,0.2), 0px 0px 0px 1px rgba(188,188,188,0.1);
+    -moz-box-shadow: 0px 0px 7px rgba(0,0,0,0.2), 0px 0px 0px 1px rgba(188,188,188,0.1);
+    box-shadow: 0px 0px 7px rgba(0,0,0,0.2), 0px 0px 0px 1px rgba(188,188,188,0.1);
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+    -webkit-transition: box-shadow 0.3s ease-in-out;
+    -moz-transition: box-shadow 0.3s ease-in-out;
+    -o-transition: box-shadow 0.3s ease-in-out;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.svg_editor .create_btn_panel .tool_btn .tool_btn_text{
+    padding: 8px 20px;
+    font-size: 14px;
+    color: #5b75a5;
+    font-weight: 500;
+    font-family: "Myriad Pro", "Trebuchet MS", sans-serif;
+    text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
+}
+
+.svg_editor .create_btn_panel .tool_btn:hover{
+    background: #fff;
+    -webkit-box-shadow: 0px 0px 9px rgba(0,0,0,0.4), 0px 0px 0px 1px rgba(188,188,188,0.1);
+    -moz-box-shadow: 0px 0px 9px rgba(0,0,0,0.4), 0px 0px 0px 1px rgba(188,188,188,0.1);
+    box-shadow: 0px 0px 9px rgba(0,0,0,0.4), 0px 0px 0px 1px rgba(188,188,188,0.1);
+}
+
+.svg_editor .create_btn_panel .tool_btn:active{
+    background: #d7565b;
+    box-shadow:
+        0px 2px 2px rgba(0,0,0,0.6) inset,
+        0px 0px 0px 1px rgba(188,188,188,0.1);
+}
+.svg_editor .create_btn_panel .tool_btn:active .tool_btn_text{
+    color: #fff;
+    text-shadow: 0px 1px 1px rgba(0,0,0,0.3);
+}*/
+/*-- -- SVG Create Button Panel -- end --*/
+
+
+/*-- -- SVG Create Button -- start --*/ /*
+.svg_editor .create_btn_div{
+    position: absolute;
+    left: 40px;
+    cursor: pointer;
+    margin-top:40px;
+}
+.svg_editor .create_btn{
+    position: relative;
+    width: 80px;
+    background: #80a9da;
+    background: -webkit-gradient(linear,left top,left bottom,color-stop(#80a9da,0),color-stop(#6f97c5,1));
+    background: -webkit-linear-gradient(top, #80a9da 0%, #6f97c5 100%);
+    background: -moz-linear-gradient(top, #80a9da 0%, #6f97c5 100%);
+    background: -o-linear-gradient(top, #80a9da 0%, #6f97c5 100%);
+    background: linear-gradient(top, #80a9da 0%, #6f97c5 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#80a9da', endColorstr='#6f97c5',GradientType=0 );
+    padding-left: 20px;
+    padding-right: 80px;
+    vertical-align: middle;
+    height: 38px;
+    line-height: 38px;
+    border: 1px solid #5d81ab;
+    -webkit-box-shadow: 0px 1px 1px rgba(255,255,255,0.8) inset, 1px 1px 3px rgba(0,0,0,0.2), 0px 0px 0px 4px rgba(188,188,188,0.5);
+    -moz-box-shadow: 0px 1px 1px rgba(255,255,255,0.8) inset, 1px 1px 3px rgba(0,0,0,0.2), 0px 0px 0px 4px rgba(188,188,188,0.5);
+    box-shadow: 0px 1px 1px rgba(255,255,255,0.8) inset, 1px 1px 3px rgba(0,0,0,0.2), 0px 0px 0px 4px rgba(188,188,188,0.5);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    clear: both;
+    overflow: hidden;
+    -webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s linear;
+    -o-transition: all 0.3s linear;
+    transition: all 0.3s linear;
+}
+.svg_editor .create_btn_text{
+    padding-top: 2px;
+    font-size: 18px;
+    white-space: nowrap;
+    text-shadow: 0px 1px 1px rgba(255,255,255,0.3);
+    color: #446388;
+    -webkit-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+}
+.svg_editor .create_btn_slide_text{
+    position:absolute;
+    top: 0px;
+    right: 52px;
+    width: 0px;
+    background: #63707e;
+    text-shadow: 0px -1px 1px #363f49;
+    color: #fff;
+    font-size: 18px;
+    white-space: nowrap;
+    text-transform: uppercase;
+    text-align: left;
+    text-indent: 10px;
+    overflow: hidden;
+    line-height: 38px;
+    box-shadow:
+        -1px 0px 1px rgba(255,255,255,0.4),
+        1px 1px 2px rgba(0,0,0,0.2) inset;
+    -webkit-transition: width 0.3s linear;
+    -moz-transition: width 0.3s linear;
+    -o-transition: width 0.3s linear;
+    transition: width 0.3s linear;
+}
+.svg_editor .create_btn_icon_right{
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    height: 100%;
+    width: 52px;
+    border-left: 1px solid #5d81ab;
+    box-shadow: 1px 0px 1px rgba(255,255,255,0.4) inset;
+}
+.svg_editor .create_btn_icon_right span{
+    width: 38px;
+    height: 38px;
+    opacity: 0.7;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -20px 0px 0px -20px;
+    background: transparent url(../images/arrow_right.png) no-repeat 50% 55%;
+    transition: all 0.3s linear;
+}
+.svg_editor .create_btn_opened{
+    padding-right: 220px;
+    box-shadow: 0px 1px 1px rgba(255,255,255,0.8) inset, 1px 1px 3px rgba(0,0,0,0.2);
+}
+.svg_editor .create_btn_opened .create_btn_text{
+    text-shadow: 0px 1px 1px #5d81ab;
+    color: #fff;
+}
+.svg_editor .create_btn_opened .create_btn_slide_text{
+    width: 140px;
+}
+.svg_editor .create_btn_opened .create_btn_icon-right span{
+    opacity: 1;
+}
+.svg_editor .create_btn:active {
+    position: relative;
+    top: 1px;
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.4) inset;
+    -webkit-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+}*/
+/*-- -- SVG Create Button -- end --*/
+
+

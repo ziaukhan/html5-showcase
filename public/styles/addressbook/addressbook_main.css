@@ -1,0 +1,124 @@
+body {
+    background-color: #1abc9c;
+}
+.mainFrame {
+    background-image: url('/img/addressbook/_center.jpg');
+    background-repeat: repeat-x;
+    position: relative;
+    height: 700px;
+    margin-top: -30px;
+    color: white;
+    width: 1138px;
+    margin: auto;
+}
+.phoneFrame {
+    background-image: url('/img/addressbook/phone_frame.jpg');
+    background-repeat: no-repeat;
+    width: 370px;
+    height: 700px;
+    position: absolute;
+    left: 79px;
+}
+.mainLeft {
+    background-image: url('/img/addressbook/_left.jpg');
+    background-repeat: no-repeat;
+    height: 700px;
+    position: absolute;
+    width: 79px;
+}
+.mainRight {
+    background-image: url('/img/addressbook/_right.jpg');
+    background-repeat: no-repeat;
+    height: 700px;
+    position: absolute;
+    width: 117px;
+    right: 0;
+}
+#demoIframe {
+    position: absolute;
+    top: 102px;
+    left: 40px;
+    border: 0px;
+    width:292px;
+    height:448px;
+}
+
+.rightContentCont {
+    width: 570px;
+    position: absolute;
+    left: 500px;
+}
+
+#mainFrameLogo {
+    background-image: url('/img/addressbook/logo.png');
+    width: 415px;
+    height: 185px;
+    background-size: 80%;
+    background-repeat: no-repeat;
+    display: inline-block;
+}
+.textContent {
+    max-height: 300px;
+    height: 250px;
+}
+.textContent h5 {
+    font-style: italic;
+    font-weight: bold;
+}
+
+
+#addressBookDashBoardLink {
+    height: 100px;
+    vertical-align: top;
+    display: inline-block;
+    position: relative;
+    width: 100px;
+    font-size: 10px;
+    margin: 40px 10px 0 10px;
+    background: url('/img/addressbook/userDashboard.png') 50% 50% no-repeat;
+    background-size: 70px 70px;
+    float: right;
+}
+#addressBookDashBoardLink:hover , #addressBookDashBoardLink:active {
+    background: url('/img/addressbook/userDashboard_active.png') 50% 50% no-repeat;
+    background-size: 70px 70px;
+}
+
+
+#storeIcons {
+    height: 100px;
+    text-align: center;
+}
+
+.storeIconsWindowsPhone8 { background: url('/img/addressbook/store_icons/windowsPhone8.png') 50% 50% no-repeat; }
+.storeIconsWindowsPhone8:hover,.storeIconsWindowsPhone8:active { background: url('/img/addressbook/store_icons/windowsPhone8_active.png') 50% 50% no-repeat; }
+.storeIconsAndroid { background: url('/img/addressbook/store_icons/android.png') 50% 50% no-repeat; }
+.storeIconsAndroid:hover,.storeIconsAndroid:active { background: url('/img/addressbook/store_icons/android_active.png') 50% 50% no-repeat; }
+.storeIconsIos { background: url('/img/addressbook/store_icons/ios.png') 50% 50% no-repeat; }
+.storeIconsIos:hover,.storeIconsIos:active { background: url('/img/addressbook/store_icons/ios_active.png') 50% 50% no-repeat; }
+.storeIconsWindows8 { background: url('/img/addressbook/store_icons/windows8.png') 50% 50% no-repeat; }
+.storeIconsWindows8:hover , .storeIconsWindows8:active { background: url('/img/addressbook/store_icons/windows8_active.png') 50% 50% no-repeat; }
+.storeIconsChrome { background: url('/img/addressbook/store_icons/chrome.png') 50% 50% no-repeat; }
+.storeIconsChrome:hover , .storeIconsChrome:active { background: url('/img/addressbook/store_icons/chrome_active.png') 50% 50% no-repeat; }
+
+.storeIcons ,.storeIcons:hover , .storeIcons:active {
+    height: 100px;
+    vertical-align: bottom;
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    font-size: 10px;
+    margin: 0px 10px;
+    background-size: 50px 50px;
+}
+.storeIcons span , #addressBookDashBoardLink span {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    font-size: 10px;
+    text-align: center;
+    color: white;
+    left: 0;
+}
+
+

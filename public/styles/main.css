@@ -1,0 +1,12 @@
+/* Will be compiled down to a single stylesheet with your sass files */
+
+.nav, .pagination, .carousel a { cursor: pointer; }
+
+
+body {
+    padding-top: 80px;
+    padding-bottom: 40px;
+}
+.partial_container{
+    width: 100%;
+}

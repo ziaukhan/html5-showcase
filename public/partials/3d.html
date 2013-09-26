@@ -1,0 +1,82 @@
+
+      <div id="canvas" new-directive="true" class="title"  ng-controller="chartController">
+
+
+
+          <!--Chart Edit Panel-->
+          <div ng-include = '"scripts/editor3d/templates/editPanel.html"' ng-controller="editChartController">
+
+
+          </div>
+
+
+
+          <!--sliders-->
+
+          <div class="posControls" ng-controller="slideController">
+              <div><input type="range" min="1" max="2" step="0.1" ng-model="chart.scale.x" ng-change="renderScene()"  class="positionControl"></div>
+              <div><input type="range" min="1" max="2" step="0.1" ng-model="chart.scale.y" ng-change="renderScene()"  class=" positionControl"></div>
+              <div><input type="range" min="1" max="2" step="0.1" ng-model="chart.scale.z" ng-change="renderScene()"  class=" positionControl"></div>
+              <div class="btnContainer" add-panel-async="true">
+                  <!--<a pageslide="right" content=".panelHeader, .controlContainer, .panelFooter" ps-speed="0.5" href="#chartEditor" class="btn">Edit</a>-->
+                  <button  class="btn" ng-click="animateChart()">Animate</button>
+              </div>
+          </div>
+
+
+
+
+
+          <!--editor-->
+
+          <three-d>
+
+              <grouped-bar-chart width="400" height="400" depth="50">
+                  <group name="A">
+                      <groupItem>
+                          <legend>a</legend>
+                          <frequency>60</frequency>
+                      </groupItem>
+                      <groupItem>
+                          <legend>b</legend>
+                          <frequency>90</frequency>
+                      </groupItem>
+                  </group>
+
+                  <group name="B">
+                      <groupItem>
+                          <legend>a</legend>
+                          <frequency>45</frequency>
+                      </groupItem>
+                      <groupItem>
+                          <legend>b</legend>
+                          <frequency>30</frequency>
+                      </groupItem>
+                  </group>
+
+              </grouped-bar-chart>
+
+          </three-d>
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+
+
+
+
+
+
+
+
+
+
+

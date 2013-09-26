@@ -1,0 +1,52 @@
+<div class="row" style="margin:10px 0 30px 0; padding:10px; background-color:#EEEEEE; border-radius:5px; font:12px Tahoma;">
+    <button ng-click="addTopic()" ng-disabled="isDisabled">New Topic</button>
+<input ng-model="topicName">
+</div>
+<div class="row-fluid">
+    <div class="span4">
+
+        <!--   https://github.com/eu81273/angular.treeview
+      [TREE attribute]
+      angular-treeview: the treeview directive
+      tree-id : each tree's unique id.
+      tree-model : the tree model on $scope.
+      node-id : each node's id
+      node-label : each node's label
+      node-children: each node's children
+    -->
+        <div
+                data-angular-treeview="true"
+                data-tree-id="topicTree"
+                data-tree-model="topicTree"
+                data-node-id="topicId"
+                data-node-label="topicName"
+                data-node-children="children" >
+        </div>
+    </div>
+    <div class="span8" ng-show="topicTree.currentNode && topicTree.currentNode.dataContainer">
+            <fieldset>
+                <legend>{{topicTree.currentNode.topicName}}</legend>
+                <label for="noteTitle">Note Title</label>
+                <input ng-model="noteTitle" id="noteTitle">
+            </fieldset>
+            <fieldset>
+                <label for="note">Note</label>
+                <textarea id="note" name="note" rows="10" cols="100" ng-model="note"></textarea>
+                <br>
+                <button class="btn" ng-click="addNote()">Add Note</button>
+            </fieldset>
+    </div>
+    <div class="span8" ng-show="topicTree.currentNode && !topicTree.currentNode.dataContainer">
+        <fieldset>
+            <label for="noteTitle">Note Title</label>
+            <input ng-model="noteTitle" id="noteTitle">
+        </fieldset>
+        <fieldset>
+            <label for="note">Note</label>
+            <textarea id="note" name="note" rows="10" cols="100" ng-model="note"></textarea>
+            <br>
+            <button class="btn" ng-click="updateNote()">Update Note</button>
+            <button class="btn" ng-click="deleteNote()">Delete Note</button>
+        </fieldset>
+    </div>
+</div>
