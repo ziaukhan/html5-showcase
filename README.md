@@ -29,7 +29,7 @@ The HTML5 Showcase is a demonstration for developers of how to use these feature
 - Web App on any Modern Browser
 - Windows 8.1 Store App
 - Chrome Desktop App
-- Android and iOS App using PhoneGap *(WebGL not supported yet)*
+- Android and iOS App using PhoneGap *(WebGL and WebRTC not supported yet)*
 
 Run it on your browser: http://html5-showcase.azurewebsites.net/
 
@@ -47,5 +47,6 @@ There is tremendous interest in these technologies. I have been teaching them in
 We announced free classes for these technologies on the social media and [over 1,000 students showed up to take the admission tests](http://epaper.jehanpakistan.com/E-Paper/khi/190813/openlink.asp?ddir=190813&im=p6-17.jpg).
 Developers and students all over world love these technologies. Soon we are planning to start these courses on a global scale (technology under development). The idea is to teach the under-privileged youth of the world and make them productive citizens.
 
+You can follow my activities on my [profile](http://mvp.microsoft.com/en-us/mvp/Zia%20U.%20Khan-38505) or on [facebook](http://www.facebook.com/ziakhan).
 
 Note: I have not used RequireJS in this project because I am also using it as a teaching tool in my classes. My experience is that RequireJS makes it difficult for the students to follow and play with the code.
