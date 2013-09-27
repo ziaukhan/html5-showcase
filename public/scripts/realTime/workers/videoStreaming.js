@@ -4,6 +4,7 @@
     function initiateVideo(){
         'use strict';
 
+
         var isChannelReady;
         var isInitiator = false;
         var isStarted = false;
@@ -23,7 +24,8 @@
 
 /////////////////////////////////////////////
 
-        var room = location.pathname.substring(1);
+        var room = prompt("Enter Room");
+        if(!room) return;
         if (room === '') {
 //  room = prompt('Enter room name:');
             room = 'foo';
