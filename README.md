@@ -35,6 +35,11 @@ Run it on your browser: http://html5-showcase.azurewebsites.net/
 
 For those who want to learn I suggest the following resources:
 - [HTML5 for Masterminds, 2nd Edition: How to take advantage of HTML5 to create amazing websites and revolutionary applications](http://www.amazon.com/HTML5-Masterminds-2nd-Edition-revolutionary/dp/1481138502/ref=sr_1_2?ie=UTF8&qid=1380271493&sr=8-2&keywords=html5)
-
+- [AngularJS](http://www.amazon.com/AngularJS-Brad-Green/dp/1449344852/ref=sr_1_1?ie=UTF8&qid=1380271766&sr=8-1&keywords=angular)
+- [Interactive Data Visualization for the Web](http://www.amazon.com/Interactive-Data-Visualization-Scott-Murray/dp/1449339735/ref=sr_1_1?ie=UTF8&qid=1380271839&sr=8-1&keywords=d3.js)
+- [WebGL: Up and Running](http://www.amazon.com/WebGL-Up-Running-Tony-Parisi/dp/144932357X/ref=sr_1_1?ie=UTF8&qid=1380271949&sr=8-1&keywords=three.js)
+- [Interactive 3D Graphics](https://www.udacity.com/course/cs291)
+- [Learning Node](http://www.amazon.com/Node-Running-Scalable-Server-Side-JavaScript/dp/1449398588/ref=sr_1_6?s=books&ie=UTF8&qid=1380272466&sr=1-6&keywords=node.js)
+- [MongoDB: The Definitive Guide](http://www.amazon.com/MongoDB-Definitive-Guide-Kristina-Chodorow/dp/1449344682/ref=sr_1_1?ie=UTF8&qid=1380272212&sr=8-1&keywords=mongodb)
 
 Note: I have not used RequireJS in this project because I am also using it as a teaching tool in my classes. My experience is that RequireJS makes it difficult for the students to follow and play with the code.
