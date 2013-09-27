@@ -69,23 +69,20 @@
 
 
 
-
-    sampleApp.directive('addPanelAsync', function ($compile){
+    sampleApp.directive('attachPanelBtn', function ($compile ){
 
       return {
           restrict: 'A',
 
-          link:function(scope, element){
+          link:function(scope, element, attrs){
 
               scope.$parent.$on("$includeContentLoaded", function(evt){
 
-                  var _newElement =  angular.element('<a pageslide="right" content=".panelHeader, .controlContainer, .panelFooter" ps-speed="0.5" href="#chartEditor" class="btn">Edit</a>');
+                  var _targetElement =   attrs.attachPanelBtn;
 
+                  var _newElement =  angular.element('<a pageslide="right" content=".panelHeader, .controlContainer, .panelFooter" ps-speed="0.5" href="#'+_targetElement +'"class="btn">Edit</a>');
                   element.append(_newElement);
-
                   $compile(_newElement)(scope);
-
-
 
               })
 
@@ -120,10 +117,14 @@
 
                 //setup 3d environment
                scope.init();
+
                scope.setData( [
                    {group:"A", children:[{name:"A1", frequency:"10"}]},
-                   {group:"B", children:[{name:"B1", frequency:"10"}]}]);
-               scope.drawGroupedBarChart();
+                   {group:"B", children:[{name:"A1", frequency:"10"}]}]);
+
+
+                scope.drawGroupedBarChart();
+
 
             }
         };

@@ -1,8 +1,15 @@
+
+
 <div class="row" style="margin:10px 0 30px 0; padding:10px; background-color:#EEEEEE; border-radius:5px; font:12px Tahoma;">
+
     <button ng-click="addTopic()" ng-disabled="isDisabled">New Topic</button>
-<input ng-model="topicName">
+
+    <input ng-model="topicName">
+
 </div>
+
 <div class="row-fluid">
+
     <div class="span4">
 
         <!--   https://github.com/eu81273/angular.treeview
@@ -23,6 +30,14 @@
                 data-node-children="children" >
         </div>
     </div>
+
+
+    <!--<div class="span8" ng-show="topicTree.currentNode && topicTree.currentNode.dataContainer">-->
+
+
+    <!--</div>-->
+
+
     <div class="span8" ng-show="topicTree.currentNode && topicTree.currentNode.dataContainer">
             <fieldset>
                 <legend>{{topicTree.currentNode.topicName}}</legend>
@@ -36,6 +51,9 @@
                 <button class="btn" ng-click="addNote()">Add Note</button>
             </fieldset>
     </div>
+
+
+
     <div class="span8" ng-show="topicTree.currentNode && !topicTree.currentNode.dataContainer">
         <fieldset>
             <label for="noteTitle">Note Title</label>

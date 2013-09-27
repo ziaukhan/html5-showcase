@@ -96,22 +96,12 @@ function doAnimation(){
 sampleApp.controller('slideController', function($scope, service3dTools) {
 
 
-
-
-
-    //$scope.chart = null;
-
-
-        $scope.renderScene=function(){
-                $scope.$parent.sceneChanged();
-            }
+    $scope.renderScene=function(){
+            $scope.$parent.sceneChanged();
+        }
 
     $scope.$watch('$parent.getChart()', function(newVal, oldVal){
-
-
-        $scope.chart  = newVal;
-
-
+            $scope.chart  = newVal;
     });
 
 
@@ -194,11 +184,17 @@ sampleApp.controller('editChartController', function($scope, service3dTools) {
 
 
 
-    $scope.unFocusItem =function($event){
+    $scope.unFocusItem =function($event, index){
 
         if($event.target.value.length == 0){
             $($event.target).closest(".nodeChild").addClass("contentError");
         }
+
+        $scope.$parent.groups.forEach(function(item){
+            item.children[index].name =  $event.target.value;
+        })
+
+
 
         //$event.target.parentNode.classList.remove("itemNameError");
 
@@ -234,23 +230,34 @@ sampleApp.controller('editChartController', function($scope, service3dTools) {
 });
 
 
+sampleApp.controller('specController', function($scope) {
 
 
+    $scope.tell = function(){
 
-sampleApp.controller('chartController', function($scope, service3dTools) {
+        return "telling";
+    }
+
+});
+
+
+    sampleApp.controller('chartController', function($scope, service3dTools) {
 
 
     $scope.doAnimation = function(){
 
-        if(animationStarted)
-        {
+        if(animationStarted){
+
             $scope.chart.rotation.y += .005;
-            renderer.render(scene, camera);
+            $scope.sceneChanged();
+
             requestAnimationFrame($scope.doAnimation);
         }
 
 
     }
+
+
 
     $scope.setData=function(data){
 
@@ -302,7 +309,8 @@ sampleApp.controller('chartController', function($scope, service3dTools) {
 
     $scope.sceneChanged = function(){
 
-        renderer.render(scene, camera);
+       if(renderer)
+            renderer.render(scene, camera);
 
     }
 
@@ -338,44 +346,69 @@ sampleApp.controller('chartController', function($scope, service3dTools) {
 
     }
 
-    $scope.drawGroupedBarChart = function(){
-
+    $scope.createGroupedBarChart = function(){
         $scope.chart = service3dTools.getGroupedBarChart( $scope.groups);
-
-       // $scope.chart.scale.copy(new THREE.Vector3($scope.size.scaleX, $scope.size.scaleY, $scope.size.scaleZ));
-        //_dummy.x = $scope.size.scaleX ;
-
-
-        var _oldChart = scene.getObjectByName("groupBarChart");
-
-        if(_oldChart){
-             $scope.chart.scale.copy(_oldChart.scale);
-            _oldChart.parent.remove(_oldChart);
-        }
-
-       scene.add($scope.chart);
-       renderer.render(scene, camera);
-
+        return $scope.chart;
     }
+
+    $scope.getScene = function(){
+        return scene;
+    }
+
+    $scope.drawElement = function(element){
+        scene.add($scope.chart);
+    }
+
+
+
+
+       $scope.drawGroupedBarChart = function(){
+
+           var _chart =  $scope.createGroupedBarChart();
+
+           var _oldChart = $scope.getScene().getObjectByName("groupBarChart");
+
+           if(_oldChart){
+               _chart.scale.copy(_oldChart.scale);
+               _oldChart.parent.remove(_oldChart);
+           }
+
+           $scope.drawElement(_chart);
+           $scope.sceneChanged();
+
+
+
+       }
+
+
+//    $scope.drawGroupedBarChart = function(){
+//
+//        $scope.chart = service3dTools.getGroupedBarChart( $scope.groups);
+//
+//        var _oldChart = scene.getObjectByName("groupBarChart");
+//
+//        if(_oldChart){
+//             $scope.chart.scale.copy(_oldChart.scale);
+//            _oldChart.parent.remove(_oldChart);
+//        }
+//
+//       scene.add($scope.chart);
+//       renderer.render(scene, camera);
+//
+//        return  $scope.chart;
+//    }
 
 
 
 
     $scope.init= function(){
 
-
         create3dCanvas();
-
-//        editorControls = new THREE.EditorControls( camera, container );
-//        editorControls.enabled = true;
 
     }
 
 
    $scope.onPointerDown=function(){
-
-
-
 
    }
 

@@ -54,3 +54,16 @@ div[data-tree-model] li .selected {
   font-weight: bold;
   padding: 1px 5px;
 }
+
+
+/*custom addition*/
+
+
+.span8{
+
+    width:30%;
+    height:600px;
+    border: 1px solid red;
+
+
+}

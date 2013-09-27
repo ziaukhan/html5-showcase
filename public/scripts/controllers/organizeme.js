@@ -14,15 +14,39 @@ sampleApp.controller('organizeMeCtrl', function($scope, topicsdb) {
             var dateId1 = new Date();
             var dateId2 = new Date(dateId1.getTime()+1);
             var dateId3 = new Date(dateId2.getTime()+1);
+
             $scope.$apply(function(){
                 $scope.topicTree = [
-                    { "topicName" : "SVG", "dataContainer": true, "_id" : dateId1.toISOString(), "parentId": "0",   "children" : [
-                        { "topicName" : "D3.js", "dataContainer": true, "_id" : new Date(dateId2.getTime()+3).toISOString(), "parentId": dateId1.toISOString(),  "children" : [] },
+                    {
+                        "topicName" : "SVG",
+                        "dataContainer": true,
+                        "_id" : dateId1.toISOString(),
+                        "parentId": "0",
+                        "children" : [
+                                { "topicName" : "D3.js",
+                                    "dataContainer": true,
+                                    "_id" : new Date(dateId2.getTime()+3).toISOString(),
+                                    "parentId": dateId1.toISOString(),
+                                    "children" : [] }
+                                         ] },
+                    {
+                        "topicName" : "WebGL",
+                        "dataContainer": true,
+                        "_id" : dateId2.toISOString(),
+                        "parentId": "0",
+                        "children" : [
+                                { "topicName" : "Three.js",
+                                    "dataContainer": true,
+                                    "_id" : new Date(dateId2.getTime()+6).toISOString(),
+                                    "parentId": dateId2.toISOString(),
+                                    "children" : [] }
                     ] },
-                    { "topicName" : "WebGL", "dataContainer": true, "_id" : dateId2.toISOString(), "parentId": "0",  "children" : [
-                        { "topicName" : "Three.js", "dataContainer": true, "_id" : new Date(dateId2.getTime()+6).toISOString(), "parentId": dateId2.toISOString(),  "children" : [] },
-                    ] },
-                    { "topicName" : "Web Socket", "dataContainer": true, "_id" : dateId3.toISOString(), "parentId": "0",  "children" : [] },
+                    {
+                        "topicName" : "Web Socket",
+                        "dataContainer": true,
+                        "_id" : dateId3.toISOString(),
+                        "parentId": "0",
+                        "children" : [] }
                 ];
                 topicsdb.saveList({docs: $scope.topicTree}).then(function(){
 
