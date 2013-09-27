@@ -57,7 +57,18 @@ if ('development' == app.get('env')) {
 //app.get('/', routes.index);
 require('./routes')(app, null);
 
+var server =  http.createServer(app);
+var io = require('socket.io').listen(server);
 
-http.createServer(app).listen(app.get('port'), function(){
+io.sockets.on('connection', function (socket) {
+    //----->> - Socket Listeners - <<-----
+    console.log("socket client connected");
+    require("./realTimeServer").initialize( io, socket );
+});
+
+
+
+server.listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
+

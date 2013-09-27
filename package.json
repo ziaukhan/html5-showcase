@@ -7,5 +7,6 @@
   },
   "dependencies": {
     "express": "*",
-    "ejs": "*", "async": "*", "mongoose": "3.6.19"  }
+    "ejs": "*", "async": "*", "mongoose": "3.6.19", "socket.io": "0.9.16"
+  }
 }

@@ -4,7 +4,7 @@ HTML5 Showcase
 Using AngularJS, D3.js, Three.js, WebRTC, Socket.IO, Node.js, and MongoDB
 --------------
 
-HTML5 has extremely powerful features and API�s. 
+HTML5 has extremely powerful features and API's.
 A lot of developers the world over are developing very compelling apps using some of these capabilities. 
 However, the main power comes from using these capabilities together in a synergistic way. 
 The power of client side database, offline, and real-time capabilities combined with scalable vector and 3D graphics allows us to create compelling user experiences. 
@@ -21,7 +21,7 @@ A new software development stack is emerging, which has made JavaScript a full s
 - MongoDB for scalable data management.
 
  
-The HTML5 Showcase is not an app which does anything specific but is demonstration for developers of how to use these features seamlessly. 
+The HTML5 Showcase is a demonstration for developers of how to use these features seamlessly.
 
 
 **Platforms it can run on:**
@@ -32,5 +32,10 @@ The HTML5 Showcase is not an app which does anything specific but is demonstrati
 - Android and iOS App using PhoneGap *(WebGL not supported yet)*
 
 Run it on your browser: http://html5-showcase.azurewebsites.net/
+
+For those who want to learn I suggest the following resources:
+This is [an example](http://example.com/ "Title") inline link.
+This is [an example](http://example.com/ "Title") inline link.
+
 
 Note: I have not used RequireJS in this project because I am also using it as a teaching tool in my classes. My experience is that RequireJS makes it difficult for the students to follow and play with the code.

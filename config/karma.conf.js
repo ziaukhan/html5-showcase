@@ -18,8 +18,8 @@ module.exports = function(config){
       '../app/public/scripts/controllers/*.js',
       '../app/public/scripts/directives/*.js',
       '../app/public/scripts/services/*.js',
-      '../app/public/scripts/editor3d/services/*.js',
-      '../app/public/scripts/editor3d/controllers/threed.js',
+      '../app/public/scripts/chartThreeD/services/*.js',
+      '../app/public/scripts/chartThreeD/controllers/ctrlThreeD.js',
        // 'app/public/scripts/filters/*.js',
       '../app/test/unit/**/*.js'
     ],

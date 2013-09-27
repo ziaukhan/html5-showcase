@@ -27,7 +27,17 @@ sampleApp.controller('organizeMeCtrl', function($scope, topicsdb) {
                                     "dataContainer": true,
                                     "_id" : new Date(dateId2.getTime()+3).toISOString(),
                                     "parentId": dateId1.toISOString(),
-                                    "children" : [] }
+                                    "children" : [
+                                        {
+                                            "_id" : new Date(dateId2.getTime()+3).toISOString(),
+                                            note:"test note",
+                                            dataContainer:false,
+                                            children:[],
+                                            "parentId": dateId1.toISOString(),
+                                            topicName:"teasd"
+                                        }
+
+                                    ] }
                                          ] },
                     {
                         "topicName" : "WebGL",
@@ -35,8 +45,8 @@ sampleApp.controller('organizeMeCtrl', function($scope, topicsdb) {
                         "_id" : dateId2.toISOString(),
                         "parentId": "0",
                         "children" : [
-                                { "topicName" : "Three.js",
-                                    "dataContainer": true,
+                                {   "topicName" : "Three.js",
+                                    "dataContainer": false,
                                     "_id" : new Date(dateId2.getTime()+6).toISOString(),
                                     "parentId": dateId2.toISOString(),
                                     "children" : [] }

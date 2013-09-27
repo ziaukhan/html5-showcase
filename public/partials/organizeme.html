@@ -8,7 +8,7 @@
 
 </div>
 
-<div class="row-fluid">
+<div class="row">
 
     <div class="span4">
 
@@ -38,33 +38,54 @@
     <!--</div>-->
 
 
-    <div class="span8" ng-show="topicTree.currentNode && topicTree.currentNode.dataContainer">
-            <fieldset>
-                <legend>{{topicTree.currentNode.topicName}}</legend>
-                <label for="noteTitle">Note Title</label>
-                <input ng-model="noteTitle" id="noteTitle">
-            </fieldset>
-            <fieldset>
-                <label for="note">Note</label>
-                <textarea id="note" name="note" rows="10" cols="100" ng-model="note"></textarea>
-                <br>
-                <button class="btn" ng-click="addNote()">Add Note</button>
-            </fieldset>
+    <div class="span12 itemsContainer_organizeMe" ng-show="topicTree.currentNode && topicTree.currentNode.dataContainer">
+
+
+        <div ng-repeat="item in topicTree.currentNode.children" class="itemContainer" >
+
+            <div class="item span3" ng-draggable="true" ng-style="item.position" ng-click="showNote()">
+
+                <button class="btn" style="float:right" ng-click="removeItem($index)"><i class="icon-remove"></i></button>
+
+                <div class="header">
+                    <b>{{item.topicName}}</b>
+                </div>
+
+                <div class="content" style="">
+
+                </div>
+
+            </div>
+        </div>
+
+
+
+            <!--<fieldset>-->
+                <!--<legend>{{topicTree.currentNode.topicName}}</legend>-->
+                <!--<label for="noteTitle">Note Title</label>-->
+                <!--<input ng-model="noteTitle" id="noteTitle">-->
+            <!--</fieldset>-->
+            <!--<fieldset>-->
+                <!--<label for="note">Note</label>-->
+                <!--<textarea id="note" name="note" rows="10" cols="100" ng-model="note"></textarea>-->
+                <!--<br>-->
+                <!--<button class="btn" ng-click="addNote()">Add Note</button>-->
+            <!--</fieldset>-->
+
+
     </div>
 
 
 
-    <div class="span8" ng-show="topicTree.currentNode && !topicTree.currentNode.dataContainer">
-        <fieldset>
-            <label for="noteTitle">Note Title</label>
-            <input ng-model="noteTitle" id="noteTitle">
-        </fieldset>
-        <fieldset>
-            <label for="note">Note</label>
-            <textarea id="note" name="note" rows="10" cols="100" ng-model="note"></textarea>
-            <br>
-            <button class="btn" ng-click="updateNote()">Update Note</button>
-            <button class="btn" ng-click="deleteNote()">Delete Note</button>
-        </fieldset>
+    <div class="span12 itemsContainer_organizeMe" ng-show="topicTree.currentNode && !topicTree.currentNode.dataContainer">
+
+        <div class="itemBody_organizeMe">
+
+                <div class="itemHeader_organizeMe" ng-model="topicTree.currentNode.topicName" contenteditable="true"><h2>{{topicTree.currentNode.topicName}}</h2></div>
+
+        </div>
+
+
+
     </div>
 </div>
