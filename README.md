@@ -34,8 +34,7 @@ The HTML5 Showcase is a demonstration for developers of how to use these feature
 Run it on your browser: http://html5-showcase.azurewebsites.net/
 
 For those who want to learn I suggest the following resources:
-This is [an example](http://example.com/ "Title") inline link.
-This is [an example](http://example.com/ "Title") inline link.
+- [HTML5 for Masterminds, 2nd Edition: How to take advantage of HTML5 to create amazing websites and revolutionary applications](http://www.amazon.com/HTML5-Masterminds-2nd-Edition-revolutionary/dp/1481138502/ref=sr_1_2?ie=UTF8&qid=1380271493&sr=8-2&keywords=html5)
 
 
 Note: I have not used RequireJS in this project because I am also using it as a teaching tool in my classes. My experience is that RequireJS makes it difficult for the students to follow and play with the code.
