@@ -41,5 +41,6 @@ For those who want to learn I suggest the following resources:
 - [Interactive 3D Graphics](https://www.udacity.com/course/cs291)
 - [Learning Node](http://www.amazon.com/Node-Running-Scalable-Server-Side-JavaScript/dp/1449398588/ref=sr_1_6?s=books&ie=UTF8&qid=1380272466&sr=1-6&keywords=node.js)
 - [MongoDB: The Definitive Guide](http://www.amazon.com/MongoDB-Definitive-Guide-Kristina-Chodorow/dp/1449344682/ref=sr_1_1?ie=UTF8&qid=1380272212&sr=8-1&keywords=mongodb)
+- [JavaScript Testing with Jasmine: JavaScript Behavior-Driven Development] (http://www.amazon.com/JavaScript-Testing-Jasmine-Behavior-Driven-Development/dp/1449356370/ref=sr_1_1?ie=UTF8&qid=1380272808&sr=8-1&keywords=jasmine+javascript)
 
 Note: I have not used RequireJS in this project because I am also using it as a teaching tool in my classes. My experience is that RequireJS makes it difficult for the students to follow and play with the code.
