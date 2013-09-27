@@ -7,7 +7,7 @@ Using AngularJS, D3.js, Three.js, WebRTC, Socket.IO, Node.js, and MongoDB
 HTML5 has extremely powerful features and API's.
 A lot of developers the world over are developing very compelling apps using some of these capabilities. 
 However, the main power comes from using these capabilities together in a synergistic way. 
-The power of client side database, offline, and real-time capabilities combined with scalable vector and 3D graphics allows us to create compelling user experiences. 
+The power of client side database, offline, real-time and peer-to-peer  capabilities combined with scalable vector and 3D graphics allows us to create compelling user experiences.
 The recent crop of MVC frameworks allows us to develop code that is maintainable and testable both on the client as well as the server.
 If you combine this HTML5 magnificence with the power and scalability of the cloud (PaaS) you indeed have a revolution at your hands.  
 A new software development stack is emerging, which has made JavaScript a full stack language:
@@ -44,8 +44,8 @@ For those who want to learn I suggest the following resources:
 - [JavaScript Testing with Jasmine: JavaScript Behavior-Driven Development] (http://www.amazon.com/JavaScript-Testing-Jasmine-Behavior-Driven-Development/dp/1449356370/ref=sr_1_1?ie=UTF8&qid=1380272808&sr=8-1&keywords=jasmine+javascript)
 
 There is tremendous interest in these technologies. I have been teaching them in universities, even in a auditorium with a capacity of 350, [students are willing to sit on the floor to learn](https://www.facebook.com/media/set/?set=a.10151345891287623.1073741825.692297622&type=1&l=d88a96a2c5).
-We announced free classes for these technologies on the social media and [over 1,000 students showed up to take the admission tests and all the major newspapers reported the story](http://epaper.jehanpakistan.com/E-Paper/khi/190813/openlink.asp?ddir=190813&im=p6-17.jpg).
-Developers and students all over world love these technologies. Soon we are planning to start these courses on a global scale over the internet. The idea is to teach the under-privileged youth of the world and make them productive citizens.
+We announced free classes for these technologies on the social media and [over 1,000 students showed up to take the admission tests](http://epaper.jehanpakistan.com/E-Paper/khi/190813/openlink.asp?ddir=190813&im=p6-17.jpg).
+Developers and students all over world love these technologies. Soon we are planning to start these courses on a global scale (technology under development). The idea is to teach the under-privileged youth of the world and make them productive citizens.
 
 
 Note: I have not used RequireJS in this project because I am also using it as a teaching tool in my classes. My experience is that RequireJS makes it difficult for the students to follow and play with the code.
