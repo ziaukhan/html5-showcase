@@ -96,7 +96,22 @@ function doAnimation(){
 sampleApp.controller('slideController', function($scope, service3dTools) {
 
 
-    $scope.renderScene=function(){
+    $scope.renderScene=function(evt){
+
+
+        if(evt.target.classList.contains("scalerX")){
+
+            $scope.$parent.chart.scale.x = evt.target.value;
+
+        }else if(evt.target.classList.contains("scalerY")){
+
+            $scope.$parent.chart.scale.y = evt.target.value;
+
+        }else if(evt.target.classList.contains("scalerZ")) {
+
+            $scope.$parent.chart.scale.z = evt.target.value;
+        }
+
             $scope.$parent.sceneChanged();
         }
 
@@ -370,6 +385,9 @@ sampleApp.controller('specController', function($scope) {
 
            if(_oldChart){
                _chart.scale.copy(_oldChart.scale);
+               _chart.position.copy(_oldChart.position);
+               _chart.rotation.copy(_oldChart.rotation);
+
                _oldChart.parent.remove(_oldChart);
            }
 

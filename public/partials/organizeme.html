@@ -43,15 +43,15 @@
 
         <div ng-repeat="item in topicTree.currentNode.children" class="itemContainer" >
 
-            <div class="item span3" ng-draggable="true" ng-style="item.position" ng-click="showNote()">
+            <div class="icon_organizeMe span3" ng-draggable="true" ng-style="item.position" ng-click="showNote()">
 
                 <button class="btn" style="float:right" ng-click="removeItem($index)"><i class="icon-remove"></i></button>
 
-                <div class="header">
+                <div class="iconHeader_organizeMe">
                     <b>{{item.topicName}}</b>
                 </div>
 
-                <div class="content" style="">
+                <div class="content_organizeMe" style="">
 
                 </div>
 
@@ -82,6 +82,11 @@
         <div class="itemBody_organizeMe">
 
                 <div class="itemHeader_organizeMe" ng-model="topicTree.currentNode.topicName" contenteditable="true"><h2>{{topicTree.currentNode.topicName}}</h2></div>
+
+
+                <div class="itemContent_organizeMe" contenteditable="true"></div>
+
+
 
         </div>
 

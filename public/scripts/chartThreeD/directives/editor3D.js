@@ -23,6 +23,22 @@
         }
     }]);
 
+
+
+    sampleApp.directive('ngChangeSlider', ['$parse', function($parse) {
+        return function(scope, element, attr) {
+
+            var fn = attr['ngChangeSlider'];
+            element.bind('change', function(event) {
+                scope.$apply(function() {
+
+                        scope[fn](event);
+                });
+
+            });
+        }
+    }]);
+
     sampleApp.directive('ngBlur', ['$parse', function($parse) {
         return function(scope, element, attr) {
             var fn = $parse(attr['ngBlur']);
