@@ -6,10 +6,10 @@
 .realtime #hisCamera {
     text-align: center;
     position: absolute;
-    right: 5%;
-    margin-top: 3%;
-    width: 40%;
-    height: 360px;
+    right: 4%;
+    margin-top: 2%;
+    width: 44%;
+    height: 600px;
     background-color: rgba(154, 205, 50, 0.8);
     background: rgb(179,220,237); /* Old browsers */
     background: -moz-linear-gradient(top,  rgba(179,220,237,1) 0%, rgba(41,184,229,1) 50%, rgba(188,224,238,1) 100%); /* FF3.6+ */
@@ -19,7 +19,7 @@
     background: -ms-linear-gradient(top,  rgba(179,220,237,1) 0%,rgba(41,184,229,1) 50%,rgba(188,224,238,1) 100%); /* IE10+ */
     background: linear-gradient(to bottom,  rgba(179,220,237,1) 0%,rgba(41,184,229,1) 50%,rgba(188,224,238,1) 100%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b3dced', endColorstr='#bce0ee',GradientType=0 ); /* IE6-9 */
-
+background: black;
     display: flex;
     justify-content:center;
     align-items:center;
@@ -27,10 +27,10 @@
 
 .realtime #myCamera {
     position: absolute;
-    left: 5%;
-    bottom: 25%;
-    width: 40%;
-    height: 360px;
+    left: 4%;
+    margin-top: 2%;
+    width: 44%;
+    height: 600px;
     background: rgb(178,232,223); /* Old browsers */
     background: -moz-linear-gradient(top,  rgba(178,232,223,1) 0%, rgba(40,224,193,1) 50%, rgba(185,234,226,1) 100%); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(178,232,223,1)), color-stop(50%,rgba(40,224,193,1)), color-stop(100%,rgba(185,234,226,1))); /* Chrome,Safari4+ */
@@ -39,6 +39,7 @@
     background: -ms-linear-gradient(top,  rgba(178,232,223,1) 0%,rgba(40,224,193,1) 50%,rgba(185,234,226,1) 100%); /* IE10+ */
     background: linear-gradient(to bottom,  rgba(178,232,223,1) 0%,rgba(40,224,193,1) 50%,rgba(185,234,226,1) 100%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b2e8df', endColorstr='#b9eae2',GradientType=0 ); /* IE6-9 */
+    background: black;
 
     display: flex;
     justify-content:center;

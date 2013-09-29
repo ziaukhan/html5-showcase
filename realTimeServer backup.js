@@ -1,7 +1,6 @@
 (function(){
     exports.initialize = function(io, socket ){
 
-        var room = null;
         function log(){
             var array = [">>> Message from server: "];
             for (var i = 0; i < arguments.length; i++) {
@@ -16,8 +15,7 @@
             socket.broadcast.emit('message', message);
         });
 
-        socket.on('create or join', function (_room) {
-            room = _room;
+        socket.on('create or join', function (room) {
             var numClients = io.sockets.clients(room).length;
 
             log('Room ' + room + ' has ' + numClients + ' client(s)');
@@ -36,10 +34,6 @@
             socket.emit('emit(): client ' + socket.id + ' joined room ' + room);
             socket.broadcast.emit('broadcast(): client ' + socket.id + ' joined room ' + room);
 
-        });
-
-        socket.on('makeoffer',function(desc){
-            socket.broadcast.to(room).emit('message', desc);
         });
 
     }

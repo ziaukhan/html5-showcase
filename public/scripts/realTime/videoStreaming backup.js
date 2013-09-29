@@ -1,39 +1,39 @@
 ( function () {
 
     "use strict";
-    window.navigator.getUserMedia = window.navigator.getUserMedia || window.navigator.webkitGetUserMedia || window.navigator.mozGetUserMedia;
-
     function initiateVideo(){
+        'use strict';
 
 
-        var localVideo = document.querySelector('#myVideo');
-        var remoteVideo = document.querySelector('#hisVideo');
+        var isChannelReady;
+        var isInitiator = false;
+        var isStarted = false;
+        var localStream;
+        var pc;
+        var remoteStream;
+        var turnReady;
 
         var pc_config = {'iceServers': [{'url': 'stun:stun.l.google.com:19302'}]};
-        var pc_constraints = {'optional': [{'DtlsSrtpKeyAgreement': true}]};
-        var media_constraints = {video: {
-            mandatory: {
-                maxWidth: 800,
-                maxHeight: 600
-            }
-        }};
 
+        var pc_constraints = {'optional': [{'DtlsSrtpKeyAgreement': true}]};
+
+// Set up audio and video regardless of what devices are present.
         var sdpConstraints = {'mandatory': {
             'OfferToReceiveAudio':true,
             'OfferToReceiveVideo':true }};
 
-        var pc = null, localStream, remoteStream, isInitiator = false;
+/////////////////////////////////////////////
 
         var room = prompt("Enter Room");
         if(!room) return;
-
-        window.onbeforeunload = function(e){
-            sendMessage('bye');
+        if (room === '') {
+//  room = prompt('Enter room name:');
+            room = 'foo';
+        } else {
+            //
         }
 
-        //----->> - Socket Listenings - <<------
-
-        window.socket = io.connect();
+        var socket = io.connect();
 
         if (room !== '') {
             console.log('Create or join room', room);
@@ -42,97 +42,111 @@
 
         socket.on('created', function (room){
             console.log('Created room ' + room);
-            console.log("You Are Hosting");
             isInitiator = true;
-            initiateMedia();
         });
 
         socket.on('full', function (room){
             console.log('Room ' + room + ' is full');
-            alert("Room is Full");
         });
 
-        socket.on('offer', function(desc){
-            console.log("Other Peer has offered");
-            pc.setRemoteDescription(new RTCSessionDescription(desc));
-            if (message.type === 'offer') {
-                doAnswer();
-            }
-        })
-
         socket.on('join', function (room){
-            console.log('Another peer joined the room ' + room);
+            console.log('Another peer made a request to join room ' + room);
+            console.log('This peer is the initiator of room ' + room + '!');
+            isChannelReady = true;
         });
 
         socket.on('joined', function (room){
-            console.log('You have Joined the Room' + room);
-            initiateMedia();
+            console.log('This peer has joined room ' + room);
+            isChannelReady = true;
         });
 
         socket.on('log', function (array){
             console.log.apply(console, array);
         });
 
+////////////////////////////////////////////////
+
         function sendMessage(message){
             console.log('Client sending message: ', message);
+            // if (typeof message === 'object') {
+            //   message = JSON.stringify(message);
+            // }
             socket.emit('message', message);
         }
 
         socket.on('message', function (message){
             console.log('Client received message:', message);
             if (message === 'got user media') {
-                doCall();
+                maybeStart();
             } else if (message.type === 'offer') {
+                if (!isInitiator && !isStarted) {
+                    maybeStart();
+                }
                 pc.setRemoteDescription(new RTCSessionDescription(message));
                 doAnswer();
-            } else if (message.type === 'answer') {
+            } else if (message.type === 'answer' && isStarted) {
                 pc.setRemoteDescription(new RTCSessionDescription(message));
-            } else if (message.type === 'candidate') {
+            } else if (message.type === 'candidate' && isStarted) {
                 var candidate = new RTCIceCandidate({
                     sdpMLineIndex: message.label,
                     candidate: message.candidate
                 });
                 pc.addIceCandidate(candidate);
-            } else if (message === 'bye') {
+            } else if (message === 'bye' && isStarted) {
                 handleRemoteHangup();
             }
         });
 
-        ////////////////////////-----------------------////////////////////////////
+////////////////////////////////////////////////////
 
-        function initiateMedia(){
-            navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
-            navigator.getUserMedia(media_constraints, setupConnection, handleUserMediaError);
+        var localVideo = document.querySelector('#myVideo');
+        var remoteVideo = document.querySelector('#hisVideo');
 
-            console.log('Getting user media with constraints', media_constraints);
-        }
-
-        function setupConnection(stream){
+        function handleUserMedia(stream) {
             console.log('Adding local stream.');
             localVideo.src = window.URL.createObjectURL(stream);
             localStream = stream;
-            initiateStream();
+            sendMessage('got user media');
+            if (isInitiator) {
+                maybeStart();
+            }
         }
 
-        function initiateStream(){
+        function handleUserMediaError(error){
+            console.log('navigator.getUserMedia error: ', error);
+        }
 
-            sendMessage('got user media');
+        var constraints = {video: true};
+        navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+        navigator.getUserMedia(constraints, handleUserMedia, handleUserMediaError);
 
-            if(typeof localStream != 'undefined'){
+        console.log('Getting user media with constraints', constraints);
+
+        if (location.hostname != "localhost") {
+            requestTurn('https://computeengineondemand.appspot.com/turn?username=41784574&key=4080218913');
+        }
+
+        function maybeStart() {
+            if (!isStarted && typeof localStream != 'undefined' && isChannelReady) {
                 createPeerConnection();
                 pc.addStream(localStream);
-                if (location.hostname != "localhost") {
-                    //requestTurn('https://computeengineondemand.appspot.com/turn?username=41784574&key=4080218913');
+                isStarted = true;
+                console.log('isInitiator', isInitiator);
+                if (isInitiator) {
+                    doCall();
                 }
             }
         }
 
+        window.onbeforeunload = function(e){
+            sendMessage('bye');
+        }
 
 /////////////////////////////////////////////////////////
 
         function createPeerConnection() {
             try {
-                pc = new webkitRTCPeerConnection(pc_config, pc_constraints);
+                pc = new webkitRTCPeerConnection(null);
                 pc.onicecandidate = handleIceCandidate;
                 pc.onaddstream = handleRemoteStreamAdded;
                 pc.onremovestream = handleRemoteStreamRemoved;
@@ -157,6 +171,16 @@
             }
         }
 
+        function handleRemoteStreamAdded(event) {
+            console.log('Remote stream added.');
+            remoteVideo.src = window.URL.createObjectURL(event.stream);
+            remoteStream = event.stream;
+        }
+
+        function handleCreateOfferError(event){
+            console.log('createOffer() error: ', e);
+        }
+
         function doCall() {
             console.log('Sending offer to peer');
             pc.createOffer(setLocalAndSendMessage, handleCreateOfferError);
@@ -172,43 +196,15 @@
             sessionDescription.sdp = preferOpus(sessionDescription.sdp);
             pc.setLocalDescription(sessionDescription);
             console.log('setLocalAndSendMessage sending message' , sessionDescription);
-            socket.emit("makeoffer", sessionDescription);
+            sendMessage(sessionDescription);
         }
-
-
-        function handleRemoteStreamAdded(event) {
-            console.log('Remote stream added.');
-            remoteStream = event.stream;
-            remoteVideo.src = window.URL.createObjectURL(event.stream);
-        }
-
-        function hangup() {
-            console.log('Hanging up.');
-            stop();
-            sendMessage('bye');
-        }
-
-        function handleRemoteHangup() {
-            console.log('Session terminated.');
-            //stop();
-            // isInitiator = false;
-        }
-
-        function stop() {
-            // isAudioMuted = false;
-            // isVideoMuted = false;
-            pc.close();
-            pc = null;
-        }
-
-///////////////////////////////////////////
 
         function requestTurn(turn_url) {
             var turnExists = false;
             for (var i in pc_config.iceServers) {
                 if (pc_config.iceServers[i].url.substr(0, 5) === 'turn:') {
                     turnExists = true;
-                    //turnReady = true;
+                    turnReady = true;
                     break;
                 }
             }
@@ -224,13 +220,45 @@
                             'url': 'turn:' + turnServer.username + '@' + turnServer.turn,
                             'credential': turnServer.password
                         });
-                        //turnReady = true;
+                        turnReady = true;
                     }
                 };
                 xhr.open('GET', turn_url, true);
                 xhr.send();
             }
         }
+
+        function handleRemoteStreamAdded(event) {
+            console.log('Remote stream added.');
+            remoteVideo.src = window.URL.createObjectURL(event.stream);
+            remoteStream = event.stream;
+        }
+
+        function handleRemoteStreamRemoved(event) {
+            console.log('Remote stream removed. Event: ', event);
+        }
+
+        function hangup() {
+            console.log('Hanging up.');
+            stop();
+            sendMessage('bye');
+        }
+
+        function handleRemoteHangup() {
+//  console.log('Session terminated.');
+            // stop();
+            // isInitiator = false;
+        }
+
+        function stop() {
+            isStarted = false;
+            // isAudioMuted = false;
+            // isVideoMuted = false;
+            pc.close();
+            pc = null;
+        }
+
+///////////////////////////////////////////
 
 // Set Opus as the default audio codec if it's present.
         function preferOpus(sdp) {
@@ -307,18 +335,7 @@
             return sdpLines;
         }
 
-        function handleUserMediaError(error){
-            console.log('Your Device Connection Failed ', error);
-            alert('Your Device Connection Failed');
-        }
 
-        function handleRemoteStreamRemoved(event) {
-            alert('Remote stream removed. Event: ');
-        }
-
-        function handleCreateOfferError(event){
-            console.log('createOffer() error: ', e);
-        }
     }
 
 

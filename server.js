@@ -60,6 +60,10 @@ require('./routes')(app, null);
 var server =  http.createServer(app);
 var io = require('socket.io').listen(server);
 
+io.configure(function () {
+    io.set('transports', ['xhr-polling']);
+});
+
 io.sockets.on('connection', function (socket) {
     //----->> - Socket Listeners - <<-----
     console.log("socket client connected");
@@ -68,7 +72,9 @@ io.sockets.on('connection', function (socket) {
 
 
 
-server.listen(app.get('port'), function(){
+server.listen(process.env.PORT || app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
+    //var addr = app.address();
+    //console.log('Express server app listening on http://' + addr.address + ':' + addr.port);
 });
 
