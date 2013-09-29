@@ -20,6 +20,8 @@ A new software development stack is emerging, which has made JavaScript a full s
 - Node.js build scalable network (especially server-side) and cloud applications.
 - MongoDB for scalable data management.
 
+Basically it extends the MEAN (MongoDB, ExpressJS, AngularJS and Node.js) Stack with D3, Three.js, Socket.IO and PouchDB‏
+
  
 The HTML5 Showcase is a demonstration for developers of how to use these features seamlessly.
 
