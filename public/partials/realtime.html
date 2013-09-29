@@ -1,6 +1,11 @@
 <div class="realtime">
 
+    <div class="alertsPanel">
+        <alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</alert>
+    </div>
+
     <div id="myCamera">
+        <h3 style="color: #ffffff" ng-show="myVideoShown" style="display: none;">No Video</h3>
         <video id="myVideo" autoplay muted></video>
     </div>
 
@@ -19,4 +24,16 @@
             <div class="control_btns_text">HangUp</div>
         </div>
     </div>
+
+    <script type="text/ng-template" id="myModalContent.html">
+        <div class="modal-header">
+            <h3>{{promptMessage}}!</h3>
+        </div>
+
+        <input type="text" ng-model="answerMessage" style="margin-top: 10px; margin-left: 10px" autofocus="true">
+        <div class="modal-footer">
+            <button class="btn btn-primary" ng-click="ok(answerMessage)">OK</button>
+            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+        </div>
+    </script>
 </div>

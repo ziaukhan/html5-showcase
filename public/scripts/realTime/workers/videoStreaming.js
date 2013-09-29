@@ -3,7 +3,7 @@
     "use strict";
     window.navigator.getUserMedia = window.navigator.getUserMedia || window.navigator.webkitGetUserMedia || window.navigator.mozGetUserMedia;
 
-    function initiateVideo(){
+    function initiateVideo(room){
 
 
         var localVideo = document.querySelector('#myVideo');
@@ -24,7 +24,7 @@
 
         var pc = null, localStream, remoteStream, isInitiator = false;
 
-        var room = prompt("Enter Room");
+        //var room = null;//prompt("Enter Room");
         if(!room) return;
 
         window.onbeforeunload = function(e){
