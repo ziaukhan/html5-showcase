@@ -18,7 +18,7 @@
               <div><input type="range" min="1" max="2" step="0.1" ng-model="chart.scale.x" ng-change-slider="renderScene"  class="positionControl scalerX"></div>
               <div><input type="range" min="1" max="2" step="0.1" ng-model="chart.scale.y" ng-change-slider="renderScene"  class=" positionControl scalerY"></div>
               <div><input type="range" min="1" max="2" step="0.1" ng-model="chart.scale.z" ng-change-slider="renderScene"  class=" positionControl scalerZ"></div>
-              <div class="btnContainer" attach-panel-btn="chartEditor">
+              <div class="btnContainer" attach-panel-btn="chartEditor" container=".chartDataEditor">
                   <!--<a pageslide="right" content=".panelHeader, .controlContainer, .panelFooter" ps-speed="0.5" href="#chartEditor" class="btn">Edit</a>-->
                   <button  class="btn" ng-click="animateChart()">Animate</button>
               </div>

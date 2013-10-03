@@ -160,8 +160,7 @@
         setCreationTool: setCreationTool,
         setAdonerTool: setAdonerTool,
         selectedCreationTool: new util.Accessor( function () { return creationTool; } ),
-        selectedAdonerTool: new util.Accessor( function () { return adonerTool; } ),
-        generateElementID: generateElementID
+        selectedAdonerTool: new util.Accessor( function () { return adonerTool; } )
     } );
 
 } )();

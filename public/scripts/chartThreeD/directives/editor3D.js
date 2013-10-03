@@ -11,6 +11,20 @@
 (function(){
 
 
+//    sampleApp.directive('ngContentChange', ['$parse', function($parse) {
+//        return function(scope, element, attr) {
+//
+//            var fn = $parse(attr['ngContentChange']);
+//            element.bind('keydown', function(event) {
+//                scope.$apply(function() {
+//                   fn(scope, {$event:event});
+//                });
+//            });
+//        }
+//    }]);
+
+
+
     sampleApp.directive('ngFocus', ['$parse', function($parse) {
         return function(scope, element, attr) {
 
@@ -95,8 +109,9 @@
               scope.$parent.$on("$includeContentLoaded", function(evt){
 
                   var _targetElement =   attrs.attachPanelBtn;
+                  var container =  attrs.container;
 
-                  var _newElement =  angular.element('<a pageslide="right" content=".panelHeader, .controlContainer, .panelFooter" ps-speed="0.5" href="#'+_targetElement +'"class="btn">Edit</a>');
+                  var _newElement =  angular.element('<a pageslide="right" container="'+container+'" content=".panelHeader, .controlContainer, .panelFooter" ps-speed="0.5" href="#'+_targetElement +'"class="btn">Edit</a>');
                   element.append(_newElement);
                   $compile(_newElement)(scope);
 

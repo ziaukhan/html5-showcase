@@ -24,13 +24,13 @@ describe('3DEditor service', function(){
 
     beforeEach(module('sampleApp'));
 
-//    beforeEach(inject(function($rootScope, $controller){
-//
-//        scope = $rootScope.$new();
-//
-//        $controller("chartController", {$scope:scope});
-//
-//    }))
+    beforeEach(inject(function($rootScope, $controller){
+
+        scope = $rootScope.$new();
+
+        $controller("chartController", {$scope:scope});
+
+    }))
 
 
     it("should give a groupBarChart",inject(function(service3dTools){

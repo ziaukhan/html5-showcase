@@ -8,8 +8,8 @@ div[data-angular-treeview] {
 
   /* default */
   font-family: Tahoma;
-  font-size:13px;
-  color: #555;
+  font-size:1.2em;
+  color: rgb(255, 214, 153);
   text-decoration: none;
 }
 
@@ -24,7 +24,7 @@ div[data-tree-model] ul {
 div[data-tree-model] li {
   position: relative;
   padding: 0 0 0 20px;
-  line-height: 20px;
+  line-height: 30px;
 }
 
 div[data-tree-model] li .expanded {
@@ -50,9 +50,11 @@ div[data-tree-model] li i, div[data-tree-model] li span {
 }
 
 div[data-tree-model] li .selected {
-  background-color: #aaddff;
+  background-color:#745915;
   font-weight: bold;
-  padding: 1px 5px;
+  padding: 2%;
+  border-top-right-radius:10px;
+  border-bottom-right-radius:10px;
 }
 
 
@@ -60,56 +62,198 @@ div[data-tree-model] li .selected {
 
 
 .iconHeader_organizeMe{
-    background-color: rgb(202, 199, 114);
+
+    font-size:1.5em;
+    margin-left:10%;
+    padding:4%;
+    /*height: 12%;*/
+    /*background-color: rgb(202, 199, 114);*/
+    /*border-top-left-radius:10px;*/
+    /*border-top-right-radius:10px;*/
 }
 
-.icon_organizeMe .content_organizeMe{
+.iconBody_organizeMe .content_organizeMe{
+    margin-left: 6%;
     border-radius: 12px;
-    background-color: rgb(248, 245, 178);
     width:100%;
     height:80%;
 }
 
+/*.content_organizeMe :first-letter{*/
+    /*font-size:1.5em;*/
+/*}*/
+
+.content_organizeMe p{
+    word-wrap: break-word;
+    width: 86%;
+    height:72%;
+    overflow: hidden;
+}
+
+/*.content_organizeMe{*/
+    /*text-transform: capitalize;*/
+/*}*/
+
 .content_organizeMe{
-    background-color: rgb(248, 245, 178);
+    padding:4%;
     height:100%;
 }
 
+.btnImage_organizeMe{
+    cursor: pointer;
+}
 
-.icon_organizeMe{
 
-    height:300px;
-    -webkit-transform:rotate(4deg);
+.hookContainer{
+    position: relative;
+    text-align:center;
+}
+
+.hookContainer img{
+     cursor: pointer;
+}
+.extraNote img{
+    width:200px;
+    height:200px
+}
+
+
+.iconContainer{
+    background-image: url(/img/stickyNote.png);
+    height:100%;
+    background-size: cover;
+}
+
+.iconBody_organizeMe{
+    border-radius: 10px;
+    margin-top: 3%;
+    height:250px;
+    /*background-image: url(/img/stickyNote.png);*/
+    background-size: cover;
+   /*background-color: rgb(248, 245, 178);*/
+
 }
 
 
 .itemBody_organizeMe{
     border-radius: 20px;
-    height:100%;
-    background-color: rgb(248, 245, 178);
+    min-height: 700px;
+    background-size: cover;
+    background-image: url(/img/stickyNoteLarge_organizeMe.png);
+    /*background-color: rgb(248, 245, 178);*/
+
 }
 
 
 .itemHeader_organizeMe{
    padding:2%;
    height:10%;
-   background-color: rgb(202, 199, 114);
+   /*background-color: rgb(202, 199, 114);*/
    border-top-left-radius:10px;
    border-top-right-radius:10px;
 }
 
+.itemContent_organizeMe{
+    line-height: 40px;
+    /*outline-width:0;*/
+}
+
 
 .itemContent_organizeMe{
-    padding:2%;
-    height:100%;
+    width:85%;
     font-size:2em;
+    margin-left: 10%;
+    word-wrap: break-word;
+    height:600px;
+
+
 }
+
+
 
 .itemsContainer_organizeMe{
 
     padding: 2%;
-    background-image: url(/img/marbleBack.jpg);
-    height:700px;
+    /*background-image: url(/img/marbleBack.jpg);*/
+    min-height:700px;
 
 }
 
+.explorerHeader{
+    margin-top: 10%;
+    padding: 6%;
+}
+
+.explorerHeader img{
+    width:100px;
+    height:100px
+}
+
+.modalHeader_organizeMe, .modalFooter_organizeMe{
+   background-color:rgb(85, 52, 33);
+
+
+ }
+
+
+/*#splashPage_organizeMe{*/
+/*-ms-transition:opacity 1s linear;*/
+/*-moz-transition:opacity 1s linear;*/
+/*-webkit-transition:opacity 1s linear;*/
+/*moz-transition-delay:1s;*/
+/*-webkit-transition-delay:1s;*/
+/*transition:opacity 2s linear;*/
+/*}*/
+
+
+/*.hideSplashPage{*/
+     /*opacity:0;*/
+/*}*/
+
+
+
+.modalHeader_organizeMe, .modalBody_organizeMe{
+   color:white;
+}
+
+.modalBody_organizeMe{
+    background-image: url(/img/modalBack.png);
+    background-size:cover;
+}
+
+
+.explorerBox > div{
+    background-image: url(/img/explorerBack.png);
+    background-size: cover;
+    min-height:800px;
+
+}
+.appContainer_organizeMe{
+    /*border-top-right-radius:55px;*/
+    /*border-top-left-radius:55px;*/
+    background-image: url(/img/marbleBack.jpg);
+    min-height:800px;
+
+}
+
+.angular-tree{
+    margin-top: 5%;
+}
+
+.titleEditor{
+    padding-top:3%;
+    padding-left: 6%;
+    font-size: 2.2em;
+    font-weight:bold;
+}
+
+.hookContainer img{
+    position:absolute;
+    width:40px;
+    height:70px;
+    top:-38px
+}
+
+.modal_organizeMe.modal-body{
+    padding:5%;
+}

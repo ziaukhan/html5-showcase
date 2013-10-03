@@ -24,14 +24,11 @@ pageslideDirective.directive('pageslide', [
                 param.side = attrs.pageslide || 'right';
                 param.speed = attrs.psSpeed || '0.5';
                 param.size =  attrs.pswidth ||  '450px';
-
-
+                param.container =  attrs.container;
 
                 /* DOM manipulation */
                 var content = document.getElementById(attrs.href.substr(1));
                 var slider = document.createElement('div');
-
-
 
                 //console.log(content);
                 slider.id = "ng-pageslide";
@@ -79,10 +76,20 @@ pageslideDirective.directive('pageslide', [
 
                 /* Append */
 
-
-               $(".chartDataEditor").append(slider);
-                //document.body.appendChild(slider);/* custom addition
                 slider.appendChild(content);
+
+                if(param.container){
+                    $(param.container).append(slider);
+                  //$(".chartDataEditor").append(slider);
+                } else{
+                    document.body.appendChild(slider);
+                }
+
+                // $(".chartDataEditor").append(slider);
+
+
+                //document.body.appendChild(slider);/* custom addition
+
 
 
                 param.content = $(slider).find(attrs.content)

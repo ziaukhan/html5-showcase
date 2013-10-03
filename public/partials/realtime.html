@@ -4,13 +4,16 @@
         <alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</alert>
     </div>
 
+    <h2 style="position: absolute; right: 2%; top:50px">Room: <span style="font-size: x-large; font-weight: 300;">{{roomText}}</span></h2>
+
     <div id="myCamera">
-        <h3 style="color: #ffffff" ng-show="myVideoShown" style="display: none;">No Video</h3>
+        <h3 style="color: #ffffff" style="display: none;">{{myVideoText}}</h3>
         <video id="myVideo" autoplay muted></video>
     </div>
 
     <div id="hisCamera">
         <video id="hisVideo" autoplay></video>
+        <h3 style="color: #ffffff" style="display: none;">{{hisVideoText}}</h3>
     </div>
 
     <div class="control_btns_panel" style="display: none;">

@@ -46,8 +46,16 @@ describe('topicsDB Service', function(){
     it('should allow saving new objects via a promise', inject(function(topicsdb) {
         var result;
 
-        topicsdb.add({ "topicName" : "Web Socket", "dataContainer": true, "_id" : new Date().toISOString(), "parentId": 0,  "children" : [] }).then(function(res) {
+        topicsdb.saveObject(
+            {
+                "topicName" : "Web Socket",
+                "dataContainer": true,
+                "_id" : new Date().toISOString(),
+                "parentId": 0,  "children" : []
+            }).then(function(res) {
+
             result = res;
+
         });
 
         waitsFor(function() {
@@ -62,17 +70,50 @@ describe('topicsDB Service', function(){
 
     it('should allow saving a topic list', inject(function(topicsdb) {
         var result;
-        var dateId1 = new Date();
-        var dateId2 = new Date(dateId1.getTime()+1);
+        var _id;
 
-        var topicList = {docs: [
-            { "topicName" : "Web Socket", "dataContainer": true, "_id" : dateId1.toISOString(), "parentId": 0,  "children" : [
+        var topicList =  [
+            {
+                "topicName" : "SVG",
+                "dataContainer": true,
+                "_id" :(function(){ _id =util.generateElementID(); return _id}()),
+                "parentId":0,
+                parent:"true",
+                "children" : [
+                    {
+                        "parentId":_id,
+                        "_id" :(function(){ _id = util.generateElementID(); return _id}()),
+                        "topicName" : "D3.js",
+                        "dataContainer": true,
+                        "children" : [] }
+                ] },
+            {
+                "topicName" : "CSS",
+                "dataContainer": true,
+                "_id" :(function(){ _id =util.generateElementID(); return _id}()),
+                "parentId":0,
+                parent:"true",
+                "children" : [
+                    {
+                        "parentId":_id,
+                        "_id" :(function(){ _id = util.generateElementID(); return _id}()),
+                        "topicName" : "Animations",
+                        "dataContainer": true,
+                        "children" : [] }
+                ] }
 
-            ] },
-            { "topicName" : "Web Socket", "dataContainer": true, "_id" : dateId2.toISOString(), "parentId": 0,  "children" : [] }
-        ]};
-        topicsdb.saveList(topicList).then(function(res) {
+
+        ];
+
+
+        topicsdb.saveList(topicList, function(res) {
+
             result = res;
+
+        }, function(err){
+
+            result = err;
+
         });
 
         waitsFor(function() {
@@ -103,53 +144,6 @@ describe('topicsDB Service', function(){
         });
 
     }));
-
-    it('should create a list from a tree', inject(function(topicsdb) {
-
-        var dateId1 = new Date();
-        var dateId2 = new Date(dateId1.getTime()+1);
-        var dateId3 = new Date(dateId2.getTime()+1);
-
-        var topicTree = [
-            { "topicName" : "SVG", "dataContainer": true, "_id" : dateId1.toISOString(), "parentId": "0",   "children" : [
-                { "topicName" : "D3.js", "dataContainer": true, "_id" : new Date(dateId2.getTime()+3).toISOString(), "parentId": dateId1.toISOString(),  "children" : [] },
-            ] },
-            { "topicName" : "WebGL", "dataContainer": true, "_id" : dateId2.toISOString(), "parentId": "0",  "children" : [
-                { "topicName" : "Three.js", "dataContainer": true, "_id" : new Date(dateId2.getTime()+6).toISOString(), "parentId": dateId2.toISOString(),  "children" : [] },
-            ] },
-            { "topicName" : "Web Socket", "dataContainer": true, "_id" : dateId3.toISOString(), "parentId": "0",  "children" : [] },
-        ];
-
-        var list = [];
-
-        topicsdb.createListFromTree(topicTree, list);
-
-        expect(list.length).toBe(5);
-
-    }));
-
-    it('should create a tree from a list', inject(function(topicsdb) {
-
-        var dateId1 = new Date();
-        var dateId2 = new Date(dateId1.getTime()+1);
-        var dateId3 = new Date(dateId2.getTime()+1);
-
-        var list = [
-            { "topicName" : "SVG", "dataContainer": true, "_id" : dateId1.toISOString(), "parentId": "0",   "children" : [] },
-            { "topicName" : "D3.js", "dataContainer": true, "_id" : new Date(dateId2.getTime()+3).toISOString(), "parentId": dateId1.toISOString(),  "children" : [] },
-            { "topicName" : "WebGL", "dataContainer": true, "_id" : dateId2.toISOString(), "parentId": "0",  "children" : [] },
-            { "topicName" : "Three.js", "dataContainer": true, "_id" : new Date(dateId2.getTime()+6).toISOString(), "parentId": dateId2.toISOString(),  "children" : [] },
-            { "topicName" : "Web Socket", "dataContainer": true, "_id" : dateId3.toISOString(), "parentId": "0",  "children" : [] },
-        ];
-
-        var tree = [];
-        topicsdb.createTreeFromList(list, tree, "0");
-
-        expect(tree.length).toBe(3);
-        expect(tree[0].children.length).toBe(1);
-
-    }));
-
 
 
 });
