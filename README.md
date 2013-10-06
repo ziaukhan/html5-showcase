@@ -46,7 +46,7 @@ For those who want to learn I suggest the following resources:
 - [MongoDB: The Definitive Guide](http://www.amazon.com/MongoDB-Definitive-Guide-Kristina-Chodorow/dp/1449344682/ref=sr_1_1?ie=UTF8&qid=1380272212&sr=8-1&keywords=mongodb)
 - [JavaScript Testing with Jasmine: JavaScript Behavior-Driven Development] (http://www.amazon.com/JavaScript-Testing-Jasmine-Behavior-Driven-Development/dp/1449356370/ref=sr_1_1?ie=UTF8&qid=1380272808&sr=8-1&keywords=jasmine+javascript)
 
-In this architecture is the Node.js/MongoDB server code can be easily replaced with ASP.NET MVC/SQL Server on Windows Azure, Java EE with MySQL, and PHP with MySQL. These three versions are currently under development.
+In this architecture the Node.js/MongoDB server code can be easily replaced with ASP.NET MVC/SQL Server on Windows Azure, Java EE with MySQL, and PHP with MySQL. These three versions are currently under development.
 
 There is tremendous interest in these technologies. I have been teaching them in universities, even in a auditorium with a capacity of 350, [students are willing to sit on the floor to learn](https://www.facebook.com/media/set/?set=a.10151345891287623.1073741825.692297622&type=1&l=d88a96a2c5).
 We announced free classes for these technologies on the social media and [over 1,000 students showed up to take the admission tests](http://epaper.jehanpakistan.com/E-Paper/khi/190813/openlink.asp?ddir=190813&im=p6-17.jpg).
