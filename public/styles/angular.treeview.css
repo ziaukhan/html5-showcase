@@ -72,12 +72,29 @@ div[data-tree-model] li .selected {
     /*border-top-right-radius:10px;*/
 }
 
+
+.content_organizeMe > div span{
+
+    font-size: 7.2em;
+    position: absolute;
+    margin: 19%;
+
+}
+
+.iconHeader_organizeMe p{
+    overflow: hidden;
+}
+
 .iconBody_organizeMe .content_organizeMe{
     margin-left: 6%;
     border-radius: 12px;
     width:100%;
     height:80%;
+    position: relative;
 }
+
+
+
 
 /*.content_organizeMe :first-letter{*/
     /*font-size:1.5em;*/
@@ -119,9 +136,20 @@ div[data-tree-model] li .selected {
 
 
 .iconContainer{
-    background-image: url(/img/stickyNote.png);
+
+    /*background-image: url(/img/stickyNote.png);*/
+
     height:100%;
     background-size: cover;
+}
+
+.content_organizeMe img{
+
+    position: absolute;
+    width: 65%;
+    height: 65%;
+    margin-left: 8%;
+    opacity: 0.6;
 }
 
 .iconBody_organizeMe{
@@ -153,6 +181,13 @@ div[data-tree-model] li .selected {
    border-top-right-radius:10px;
 }
 
+.itemHeader_organizeMe .hookContainer img{
+
+    cursor:default;
+
+
+}
+
 .itemContent_organizeMe{
     line-height: 40px;
     /*outline-width:0;*/
@@ -180,17 +215,19 @@ div[data-tree-model] li .selected {
 }
 
 .explorerHeader{
-    margin-top: 10%;
+    margin-top: 20%;
     padding: 6%;
+    min-height: 100px;
 }
 
 .explorerHeader img{
     width:100px;
-    height:100px
+    height:100px;
+    cursor:pointer
 }
 
 .modalHeader_organizeMe, .modalFooter_organizeMe{
-   background-color:rgb(85, 52, 33);
+   background-color:rgb(0, 0, 0);
 
 
  }
@@ -217,12 +254,13 @@ div[data-tree-model] li .selected {
 }
 
 .modalBody_organizeMe{
-    background-image: url(/img/modalBack.png);
-    background-size:cover;
+    /*background-image: url(/img/modalBack.png);*/
+    /*background-size:cover;*/
+    background-color: rgb(167, 88, 51);
 }
 
 
-.explorerBox > div{
+#explorerPanel{
     background-image: url(/img/explorerBack.png);
     background-size: cover;
     min-height:800px;

@@ -17,13 +17,14 @@ A new software development stack is emerging, which has made JavaScript a full s
 - Three.js for 3D Graphics.
 - Socket.IO and WebRTC for real-time communication.
 - PouchDB for client data management.
-- Node.js build scalable network (especially server-side) and cloud applications.
-- MongoDB for scalable data management.
+- Node.js to build scalable network (especially server-side) and cloud applications (ASP.NET MVC, Java PHP versions are also under development for details see below).
+- MongoDB for scalable data management (SQL Server, MySQL, and Oracle versions also under development).
 
 Basically it extends the MEAN (MongoDB, ExpressJS, AngularJS and Node.js) Stack with D3, Three.js, Socket.IO and PouchDB‏
 
  
-The HTML5 Showcase is a demonstration for developers of how to use these features seamlessly.
+The HTML5 Showcase is a demonstration for developers of how to use these features seamlessly and how this extended stack can be used to
+develop applications.
 
 
 **Platforms it can run on:**
@@ -44,6 +45,8 @@ For those who want to learn I suggest the following resources:
 - [Learning Node](http://www.amazon.com/Node-Running-Scalable-Server-Side-JavaScript/dp/1449398588/ref=sr_1_6?s=books&ie=UTF8&qid=1380272466&sr=1-6&keywords=node.js)
 - [MongoDB: The Definitive Guide](http://www.amazon.com/MongoDB-Definitive-Guide-Kristina-Chodorow/dp/1449344682/ref=sr_1_1?ie=UTF8&qid=1380272212&sr=8-1&keywords=mongodb)
 - [JavaScript Testing with Jasmine: JavaScript Behavior-Driven Development] (http://www.amazon.com/JavaScript-Testing-Jasmine-Behavior-Driven-Development/dp/1449356370/ref=sr_1_1?ie=UTF8&qid=1380272808&sr=8-1&keywords=jasmine+javascript)
+
+In this architecture is the Node.js/MongoDB server code can be easily replaced with ASP.NET MVC/SQL Server on Windows Azure, Java EE with MySQL, and PHP with MySQL. These three versions are currently under development.
 
 There is tremendous interest in these technologies. I have been teaching them in universities, even in a auditorium with a capacity of 350, [students are willing to sit on the floor to learn](https://www.facebook.com/media/set/?set=a.10151345891287623.1073741825.692297622&type=1&l=d88a96a2c5).
 We announced free classes for these technologies on the social media and [over 1,000 students showed up to take the admission tests](http://epaper.jehanpakistan.com/E-Paper/khi/190813/openlink.asp?ddir=190813&im=p6-17.jpg).

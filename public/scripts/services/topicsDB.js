@@ -48,7 +48,7 @@ sampleApp.factory('topicsdb', function(pouchdb, $rootScope, $q) {
 
             var _promises = [];
 
-            for (var i in topicList) {
+            for (var i=0;i<topicList.length;i++) {
                 _promises.push(this.saveObject(topicList[i]));
             }
 
@@ -56,7 +56,24 @@ sampleApp.factory('topicsdb', function(pouchdb, $rootScope, $q) {
 
          },
 
-        saveObject:function(doc, updating) {
+        removeObject:function(doc){
+
+            var deferred = $.Deferred();
+
+            pouchdb.remove(doc, function (err, res) {
+                if (err) {
+                    deferred.reject(err)
+                } else {
+                    deferred.resolve(res)
+                }
+
+            });
+
+            return deferred;
+
+        },
+
+        saveObject:function(doc) {
 
             var deferred = $.Deferred();
 

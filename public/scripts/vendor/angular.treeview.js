@@ -36,6 +36,8 @@
 				var treeModel = attrs.treeModel;
 
 				//node id
+
+
 				var nodeId = attrs.nodeId || 'id';
 
 				//node label
@@ -48,14 +50,14 @@
 				var template = 
 					'<ul>' + 
 						'<li data-ng-repeat="node in ' + treeModel + '">' + 
-							'<i class="collapsed" data-ng-show="node.dataContainer && node.collapsed" data-ng-click="' + treeId + '.selectNodeHead(node)"></i>' +
-							'<i class="expanded" data-ng-show="node.dataContainer && !node.collapsed" data-ng-click="' + treeId + '.selectNodeHead(node)"></i>' +
-							'<i class="normal" data-ng-hide="node.dataContainer"></i> ' +
+							'<i class="collapsed" data-ng-show="node.dataContainer && node.collapsed && !node.isRoot" data-ng-click="' + treeId + '.selectNodeHead(node)" style="display:none"></i>' +
+							'<i class="expanded" data-ng-show="node.dataContainer && !node.collapsed  && !node.isRoot" data-ng-click="' + treeId + '.selectNodeHead(node)" ></i>' +
+							'<i class="normal" data-ng-hide="node.dataContainer || node.isRoot"></i> ' +
+                            '<i class="collapsed" data-ng-show="node.isRoot"  data-ng-click="' + treeId + '.selectNodeHead(node)" ></i> ' +
                         '<span data-ng-class="node.selected" data-ng-click="' + treeId + '.selectNodeLabel(node)">{{node.' + nodeLabel + '}}</span>' +
 							'<div data-ng-hide="node.collapsed" data-tree-id="' + treeId + '" data-tree-model="node.' + nodeChildren + '" data-node-id=' + nodeId + ' data-node-label=' + nodeLabel + ' data-node-children=' + nodeChildren + '></div>' + 
 						'</li>' + 
 					'</ul>'; 
-
 
 				//check tree id, tree model
 				if( treeId && treeModel ) {
@@ -85,7 +87,12 @@
 							selectedNode.selected = 'selected'
 
 							//set currentNode
+
+                            console.log(selectedNode);
+
 							scope[treeId].currentNode = selectedNode;
+                            scope[treeId].stackEmpty=false;
+
 						};
 					}
 

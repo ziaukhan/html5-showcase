@@ -18,25 +18,14 @@
         <img src="/img/appicon.png" style="width:50%;height:40%;position: relative;top:35%;" />
     </div>
 
-    <div class="explorerBox">
 
-        <div id="explorerPanel" class="span4" style="display:none">
+        <div id="explorerPanel" ng-click="removeStack($event)" class="span4" style="display:none">
 
-            <!--   https://github.com/eu81273/angular.treeview
-          [TREE attribute]
-          angular-treeview: the treeview directive
-          tree-id : each tree's unique id.
-          tree-model : the tree model on $scope.
-          node-id : each node's id
-          node-label : each node's label
-          node-children: each node's children
-        -->
-            <!--<div style="float: right;margin-top: 5%">-->
-                <!--<img class="btnImage_organizeMe" ng-click='addTopic()' src="/img/addIcon.png" width=50 height=50 style="float:right;margin-top:-30px" >-->
-            <!--</div>-->
 
             <div class="explorerHeader">
-                <img src="/img/addNoteIcon_organizeMe.png" style="margin-top:10%;cursor:pointer" ng-click="addTopic()"/>
+                <img src="/img/addNoteIcon_organizeMe.png" ng-show="topicTree.currentNode.dataContainer"  ng-click="addTopic(topicTree.stackEmpty, $event)"/>
+                <img src="/img/delNoteIcon_organizeMe.png" ng-show="topicTree.currentNode.dataContainer"  ng-click="handleDelete($event)"/>
+
                 <!--<a pageslide="left" clas="btn btn-large" ps-speed="0.5" href="#explorerPanel" container=".explorerBox">Hide</a>-->
             </div>
 
@@ -49,75 +38,43 @@
                     data-node-children="children" class="angular-tree" >
             </div>
         </div>
-    </div>
-
-
-    <!--<div class="span8" ng-show="topicTree.currentNode && topicTree.currentNode.dataContainer">-->
-
-
-    <!--</div>-->
-
-
-
-
-
-            <!--<div class="span12 itemsContainer_organizeMe" ng-show="topicTree.currentNode && topicTree.currentNode.dataContainer">-->
-
-                <!--<div ng-repeat="item in topicTree.currentNode.children" class="itemContainer" >-->
-
-                    <!--<div class="iconBody_organizeMe span3" ng-draggable="true" ng-style="item.position" ng-click="showNote()">-->
-
-                        <!--<div class="hookContainer">-->
-                            <!--<img toolTip="Press to delete" ng-click="handleDelete($index, $event)"  src="/img/hook.png"  >-->
-                        <!--</div>-->
-
-                        <!--<div class="iconContainer">-->
-
-                            <!--<div class="iconHeader_organizeMe">-->
-                                <!--<b>{{item.topicName}}</b>-->
-                            <!--</div>-->
-
-
-                            <!--<div class="content_organizeMe" style="">-->
-                                 <!--<p ng-bind-html-unsafe="item.note">-->
-                                <!--</p>-->
-                            <!--</div>-->
-
-                        <!--</div>-->
-
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="extraNote span3" style="height:190px;border-radius:10px;text-align:center;">-->
-                    <!--<img src="/img/stuffAdder_organizeMe.png" style="margin-top:10%;cursor:pointer" ng-click="addNote()"/>-->
-                <!--</div>-->
-            <!--</div>-->
 
 
     <div class="itemsContainer_organizeMe" ng-show="topicTree.currentNode && topicTree.currentNode.dataContainer">
 
         <div ng-repeat="item in topicTree.currentNode.children" class="itemContainer" >
 
-            <div class="iconBody_organizeMe span3" ng-draggable="true" ng-style="item.position" ng-click="topicTree.currentNode.selected=undefined;topicTree.currentNode=item;topicTree.currentNode.selected='selected'">
+            <div class="iconBody_organizeMe span3" ng-draggable="true" ng-style="item.position" >
 
                 <div class="hookContainer">
                     &nbsp;
-                    <img src="/img/hook.png"  >
+                    <img src="/img/hook.png" ng-click="handleDelete($index, $event)"  >
                 </div>
 
-                <div class="iconContainer">
 
-                    <div class="iconHeader_organizeMe">
-                        <b>{{item.topicName}}</b>
-                    </div>
+                <div style="height:100%" >
+
+                        <div class="iconContainer" set-background="item">
+
+                            <div class="iconHeader_organizeMe">
+                                <p ng-blur="onTopicNameChange($event, item)"  contenteditable="true">{{item.topicName}}</p>
+                            </div>
+
+                            <div class="content_organizeMe" ng-click="topicTree.currentNode.selected=undefined;topicTree.currentNode=item;topicTree.currentNode.selected='selected'">
+
+                                <div ng-show="topicTree.currentNode.children.length>0 && item.dataContainer==true && item.children.length>0">
+                                    <span>{{item.children.length}}</span>
+                                    <img  src="/img/childsContainer_organizeMe.png" style="" />
+                                </div>
 
 
-                    <div class="content_organizeMe" style="">
-                        <p ng-bind-html-unsafe="item.note">
-                        </p>
-                    </div>
+                                <p ng-bind-html-unsafe="item.note">
+                                </p>
+                            </div>
+
+                        </div>
 
                 </div>
-
             </div>
         </div>
         <div class="extraNote span3" style="height:190px;border-radius:10px;text-align:center;">
@@ -126,12 +83,11 @@
     </div>
 
 
-    <div class="span12 itemsContainer_organizeMe" ng-show="topicTree.currentNode && !topicTree.currentNode.dataContainer">
+    <div class="span12 itemsContainer_organizeMe" ng-show="topicTree.currentNode && !topicTree.currentNode.dataContainer && !topicTree.currentNode.isNotNode">
 
         <!--<div style="text-align:center">-->
             <!--<img  src="/img/hook.png" width=25 height=25 style="position:absolute;margin-top:-40px" >-->
         <!--</div>-->
-
 
         <div class="itemBody_organizeMe">
 
@@ -141,11 +97,11 @@
 
                     <div class="hookContainer">
                         &nbsp;
-                        <img toolTip="Press to delete" ng-click="handleDelete($index, $event)"  src="/img/hook.png"  />
+                        <img src="/img/hook.png"  />
                     </div>
 
                     <div class="titleEditor" >
-                       <span ng-content-change="onTopicNameChange($event)"  contenteditable="true">
+                       <span ng-blur="onTopicNameChange($event, topicTree.currentNode)"  contenteditable="true">
                            {{topicTree.currentNode.topicName}}
                        </span>
                     </div>
