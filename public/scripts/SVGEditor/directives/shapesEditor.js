@@ -17,6 +17,26 @@
                 window.onresize = syncSVGSize.bind( d3.select( element[0] ).selectAll( "#frameLayer, #SVGCanvas" ) );
                 window.onresize( null );
                 //*** - Bindings - ***END***
+
+                //----->> - Show Menu First Time - <<-----
+                //$timeout( function () {
+                    svgEditor.menu.showMain( svgEditor.constants.menuRadius + 5, svgEditor.constants.menuRadius + 5 );
+
+                    try{
+                        if(createEventObject){
+                            //console.log("yes")
+                            var event = new createEventObject('mouseup', { 'detail': "to Expand Menu for First time" });
+                            svgEditor.d3menuG.select(".radialMenuCenterSpot").node().dispatchEvent(event);
+                        }
+                    } catch(e){  //got IE
+                        if(Event){
+                            var event = document.createEvent('HTMLEvents');    // create event
+                            event.initEvent('mouseup', true, true );     // name event
+                            event.data = { 'detail': "to Expand Menu for First time" };
+                            svgEditor.d3menuG.select(".radialMenuCenterSpot").node().dispatchEvent(event);
+                        }
+                    }
+                //} );
             }
         };
     } );

@@ -15,7 +15,7 @@
 
 
         //slideGD3.append( "rect" ).attr( { x: 1000, y: 50, width: 50, height: 50, fill: "orange" } ).attr( 'class', "rect" );
-
+        //should just append it compile not required
         $compile( frameModel.frameSvg )( scope ).appendTo( parentContainerD3 );
 
         return d3SVG;
